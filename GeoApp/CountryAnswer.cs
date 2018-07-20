@@ -22,7 +22,7 @@ namespace GeoApp
         {
             Label lbl = new Label
             {
-                Name = "lblAnswer",
+                Name = Text,
                 Text = Text,
                 Location = new Point(PosX + 40, PosY),
                 AutoSize = true
@@ -35,6 +35,7 @@ namespace GeoApp
         {
             RadioButton rb = new RadioButton
             {
+                Tag = Text,
                 Name = State.ToString(),
                 Text = "",
                 Location = new Point(PosX, PosY),

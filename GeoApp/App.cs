@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows.Forms;
 
 namespace GeoApp
@@ -22,16 +14,6 @@ namespace GeoApp
             ShowGameMode();
         }
 
-        public void ShowQuestion()
-        {
-            gameView = new GameView
-            {
-                Dock = DockStyle.Fill
-            };
-
-            Show(gameView);
-        }
-
         private void ShowGameMode()
         {
             gameModeView = new GameModeView
@@ -39,10 +21,20 @@ namespace GeoApp
                 Dock = DockStyle.Fill
             };
 
-            Show(gameModeView);
+            ToggleView(gameModeView);
         }
 
-        private void Show(UserControl uc)
+        public void ShowQuestion()
+        {
+            gameView = new GameView
+            {
+                Dock = DockStyle.Fill
+            };
+
+            ToggleView(gameView);
+        }
+
+        private void ToggleView(UserControl uc)
         {
             foreach (Control c in Controls.OfType<UserControl>())
             {

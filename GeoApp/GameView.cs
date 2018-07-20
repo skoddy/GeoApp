@@ -10,22 +10,27 @@ namespace GeoApp
 {
     public partial class GameView : UserControl
     {
+        private int questionIndex = 0;
+
         private Database db;
         private Question<Label>[] questions;
-        private int questionIndex = 0;
         private List<GeoData> listGeodata;
-        Panel panGame;
-        Panel panGameMenu;
-        Button btnGameMenuGiveAnswer;
 
-        GroupBox grpQuestion;
-        GroupBox grpAnswers;
-        GroupBox grpResult;
+        private Panel panGame;
+        private Panel panGameMenu;
 
-        Label lblResult;
+        private Button btnGameMenuGiveAnswer;
+        private Button btnNextQuestion;
+
+        private GroupBox grpQuestion;
+        private GroupBox grpAnswers;
+        private GroupBox grpResult;
+
+        private Label lblResult;
+
         public GameView()
         {
-            Init();
+
             panGame = new Panel
             {
                 Name = "panGame",
@@ -37,12 +42,22 @@ namespace GeoApp
                 Name = "panGameMenu",
                 Dock = DockStyle.Bottom
             };
+
             btnGameMenuGiveAnswer = new Button
             {
                 Name = "btnGameMenuGiveAnswer",
                 Text = "Antworten",
                 Location = new Point(14, 16)
             };
+
+            btnNextQuestion = new Button
+            {
+                Name = "btnNextQuestion",
+                Text = "Weiter",
+                Location = new Point(100, 16),
+                Enabled = false
+            };
+
             grpQuestion = new GroupBox
             {
                 Name = "grpQuestion",
@@ -66,7 +81,9 @@ namespace GeoApp
 
             lblResult = new Label
             {
-                Location = new Point(10, 20)
+                Location = new Point(10, 20),
+                MaximumSize = new Size(100, 0),
+                AutoSize = true
             };
 
             btnGameMenuGiveAnswer.Click += (s, e) =>
@@ -74,18 +91,18 @@ namespace GeoApp
                 GiveAnswer();
             };
 
-            grpQuestion.Controls.Add(questions[questionIndex].GetContent());
-
-            foreach (Answer<Label> answer in questions[questionIndex].Answers)
+            btnNextQuestion.Click += (s, e) =>
             {
-                grpAnswers.Controls.AddRange(new Control[] 
-                {
-                        answer.RadioButton(),
-                        answer.GetContent()
-                });
-            }
+                CreateQuiz();
+            };
+
             grpResult.Controls.Add(lblResult);
-            panGameMenu.Controls.Add(btnGameMenuGiveAnswer);
+
+            panGameMenu.Controls.AddRange(new Control[]
+            {
+                btnGameMenuGiveAnswer,
+                btnNextQuestion
+            });
 
             panGame.Controls.AddRange(new Control[]
             {
@@ -97,34 +114,76 @@ namespace GeoApp
             });
 
             Controls.Add(panGame);
+
+            Init();
+            CreateQuiz();
+        }
+
+        private void CreateQuiz()
+        {
+            grpQuestion.Controls.Clear();
+            grpAnswers.Controls.Clear();
+            btnNextQuestion.Enabled = false;
+            btnGameMenuGiveAnswer.Enabled = true;
+            lblResult.Text = null;
+
+            grpQuestion.Controls.Add(questions[questionIndex].GetContent());
+
+            foreach (Answer<Label> answer in questions[questionIndex].Answers)
+            {
+                grpAnswers.Controls.AddRange(new Control[]
+                {
+                        answer.RadioButton(),
+                        answer.GetContent()
+                });
+            }
+
+            questionIndex++;
         }
 
         private void GiveAnswer()
         {
             RadioButton rb = grpAnswers.Controls.OfType<RadioButton>()
                 .FirstOrDefault(r => r.Checked);
+
+            RadioButton rb2 = grpAnswers.Controls.OfType<RadioButton>()
+                .First(r => r.Name == "True");
+
             if (rb != null)
             {
+                Label lblClicked = grpAnswers.Controls.OfType<Label>()
+                    .FirstOrDefault(l => l.Name == rb.Tag.ToString());
+
+                Label lblCorrect = grpAnswers.Controls.OfType<Label>()
+                    .FirstOrDefault(l => l.Name == rb2.Tag.ToString());
+
                 if (rb.Name == "True")
                 {
+                    lblClicked.ForeColor = Color.Green;
                     lblResult.Text = "Richtig!";
                 }
                 else
                 {
-                    lblResult.Text = "Falsch.";
+                    lblClicked.ForeColor = Color.Red;
+                    lblCorrect.ForeColor = Color.Green;
+                    lblResult.Text = "Falsch. " + rb2.Tag + " war die richtige Antwort";
                 }
+
+                btnGameMenuGiveAnswer.Enabled = false;
+                btnNextQuestion.Enabled = true;
             }
         }
 
         private void Init()
         {
-
             int maxQuestions = 20;
 
             db = new Database();
+
             listGeodata = db.GetData();
 
             QuestionType qt = QuestionType.Capital;
+
             switch (qt)
             {
                 case QuestionType.Capital:
@@ -144,6 +203,7 @@ namespace GeoApp
             for (int i = 0; i < maxQuestions; i++)
             {
                 AnswerType at = AnswerType.Flag;
+
                 switch (at)
                 {
                     case AnswerType.Capital:
