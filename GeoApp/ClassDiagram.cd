@@ -45,7 +45,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.User">
-    <Position X="14.25" Y="2.5" Width="1.5" />
+    <Position X="12.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACACCAAAAACABAAAAAAAAAAAAAAAAiAAAAAAAAAAA=</HashCode>
       <FileName>class\User.cs</FileName>
