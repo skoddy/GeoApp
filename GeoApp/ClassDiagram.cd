@@ -69,7 +69,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.GameView">
-    <Position X="12.25" Y="2.75" Width="1.5" />
+    <Position X="10.5" Y="4" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
