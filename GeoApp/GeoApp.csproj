@@ -58,13 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Answer.cs" />
+    <Compile Include="class\Answer.cs" />
     <Compile Include="enum\AnswerType.cs" />
     <Compile Include="capital\CapitalAnswer.cs" />
     <Compile Include="capital\CapitalQuestion.cs" />
     <Compile Include="country\CountryAnswer.cs" />
     <Compile Include="country\CountryQuestion.cs" />
-    <Compile Include="Database.cs" />
+    <Compile Include="class\Database.cs" />
     <Compile Include="App.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,7 +79,7 @@
     </Compile>
     <Compile Include="class\GeoData.cs" />
     <Compile Include="class\Highscore.cs" />
-    <Compile Include="IContent.cs" />
+    <Compile Include="class\IContent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="class\Question.cs" />
