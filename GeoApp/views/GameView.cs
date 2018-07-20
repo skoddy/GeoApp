@@ -28,8 +28,15 @@ namespace GeoApp
 
         private Label lblResult;
 
-        public GameView()
+        QuestionType _qt;
+        AnswerType _at;
+
+        public GameView(QuestionType qt, AnswerType at)
         {
+            _qt = qt;
+            _at = at;
+
+            #region create elements
 
             panGame = new Panel
             {
@@ -86,6 +93,10 @@ namespace GeoApp
                 AutoSize = true
             };
 
+            #endregion create elements
+
+            #region add events
+
             btnGameMenuGiveAnswer.Click += (s, e) =>
             {
                 GiveAnswer();
@@ -95,6 +106,10 @@ namespace GeoApp
             {
                 CreateQuiz();
             };
+
+            #endregion add events
+
+            #region add to controls
 
             grpResult.Controls.Add(lblResult);
 
@@ -110,10 +125,11 @@ namespace GeoApp
                 grpAnswers,
                 grpResult,
                 panGameMenu
-
             });
 
             Controls.Add(panGame);
+
+            #endregion add to controls
 
             Init();
             CreateQuiz();
@@ -123,8 +139,10 @@ namespace GeoApp
         {
             grpQuestion.Controls.Clear();
             grpAnswers.Controls.Clear();
+
             btnNextQuestion.Enabled = false;
             btnGameMenuGiveAnswer.Enabled = true;
+
             lblResult.Text = null;
 
             grpQuestion.Controls.Add(questions[questionIndex].GetContent());
@@ -166,7 +184,7 @@ namespace GeoApp
                 {
                     lblClicked.ForeColor = Color.Red;
                     lblCorrect.ForeColor = Color.Green;
-                    lblResult.Text = "Falsch. " + rb2.Tag + " war die richtige Antwort";
+                    lblResult.Text = "Falsch.\nRichtige Antwort: " + rb2.Tag;
                 }
 
                 btnGameMenuGiveAnswer.Enabled = false;
@@ -182,41 +200,20 @@ namespace GeoApp
 
             listGeodata = db.GetData();
 
-            QuestionType qt = QuestionType.Capital;
-
-            switch (qt)
-            {
-                case QuestionType.Capital:
-                    questions = new Question<Label>[maxQuestions];
-                    break;
-                case QuestionType.Country:
-                    questions = new Question<Label>[maxQuestions];
-                    break;
-                case QuestionType.Flag:
-                    questions = new Question<Label>[maxQuestions];
-                    break;
-                default:
-                    questions = new Question<Label>[maxQuestions];
-                    break;
-            }
+            questions = new Question<Label>[maxQuestions];
 
             for (int i = 0; i < maxQuestions; i++)
             {
-                AnswerType at = AnswerType.Flag;
-
-                switch (at)
+                switch (_qt)
                 {
-                    case AnswerType.Capital:
-                        questions[i] = new CapitalQuestion(listGeodata[i], db);
+                    case QuestionType.Capital:
+                        questions[i] = new CapitalQuestion(listGeodata[i], db, _at);
                         break;
-                    case AnswerType.Country:
-                        questions[i] = new CapitalQuestion(listGeodata[i], db);
+                    case QuestionType.Country:
+                        questions[i] = new CountryQuestion(listGeodata[i], db, _at);
                         break;
-                    case AnswerType.Flag:
-                        questions[i] = new CapitalQuestion(listGeodata[i], db);
-                        break;
-                    default:
-                        questions[i] = new CapitalQuestion(listGeodata[i], db);
+                    case QuestionType.Flag:
+                        questions[i] = new CapitalQuestion(listGeodata[i], db, _at);
                         break;
                 }
 

@@ -59,9 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answer.cs" />
-    <Compile Include="AnswerType.cs" />
-    <Compile Include="CapitalQuestion.cs" />
-    <Compile Include="CountryAnswer.cs" />
+    <Compile Include="enum\AnswerType.cs" />
+    <Compile Include="capital\CapitalAnswer.cs" />
+    <Compile Include="capital\CapitalQuestion.cs" />
+    <Compile Include="country\CountryAnswer.cs" />
+    <Compile Include="country\CountryQuestion.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="App.cs">
       <SubType>Form</SubType>
@@ -69,24 +71,24 @@
     <Compile Include="App.Designer.cs">
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameModeView.cs">
+    <Compile Include="views\GameModeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GameView.cs">
+    <Compile Include="views\GameView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GeoData.cs" />
-    <Compile Include="Highscore.cs" />
+    <Compile Include="class\GeoData.cs" />
+    <Compile Include="class\Highscore.cs" />
     <Compile Include="IContent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question.cs" />
-    <Compile Include="QuestionType.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="class\Question.cs" />
+    <Compile Include="enum\QuestionType.cs" />
+    <Compile Include="class\User.cs" />
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameModeView.resx">
+    <EmbeddedResource Include="views\GameModeView.resx">
       <DependentUpon>GameModeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

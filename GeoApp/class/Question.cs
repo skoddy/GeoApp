@@ -1,14 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GeoApp
 {
     public abstract class Question<T> : IContent
     {
         // Der Konstruktor ruft die Factory Methode auf.
-        public Question(GeoData data, Database db)
+        public Question(GeoData data, Database db, AnswerType at)
         {
-            CreateAnswers(data, db);
+            CreateAnswers(data, db, at);
         }
+
+        public abstract AnswerType At { get; set; }
         public abstract GeoData CorrectAnswer { get; set; }
         public abstract List<GeoData> WrongAnswers { get; set; }
         public abstract List<GeoData> AllAnswers { get; set; }
@@ -17,7 +20,7 @@ namespace GeoApp
         public abstract T GetContent();
 
         // Die Factory Methode!!
-        public abstract void CreateAnswers(GeoData data, Database db);
+        public abstract void CreateAnswers(GeoData data, Database db, AnswerType at);
 
         object IContent.GetContent()
         {

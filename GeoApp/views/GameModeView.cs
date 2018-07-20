@@ -18,9 +18,12 @@ namespace GeoApp
         private RadioButton rbModeCountryQuestions;
         private RadioButton rbModeCapitalQuestions;
         private RadioButton rbModeFlagQuestions;
-        private CheckBox cbModeCountryAnswers;
-        private CheckBox cbModeCapitalAnswers;
-        private CheckBox cbModeFlagAnswers;
+        private RadioButton rbModeCountryAnswers;
+        private RadioButton rbModeCapitalAnswers;
+        private RadioButton rbModeFlagAnswers;
+
+        QuestionType qt;
+        AnswerType at;
 
         public GameModeView()
         {
@@ -62,6 +65,8 @@ namespace GeoApp
             {
                 Name = "rbModeCountryQuestions",
                 Text = "Länder",
+                Tag = "Country",
+                Checked = true,
                 Location = new Point(7, 20)
             };
 
@@ -69,6 +74,7 @@ namespace GeoApp
             {
                 Name = "rbModeCapitalQuestions",
                 Text = "Hauptstädte",
+                Tag = "Capital",
                 Location = new Point(7, 43)
             };
 
@@ -76,33 +82,37 @@ namespace GeoApp
             {
                 Name = "rbModeFlagQuestions",
                 Text = "Flaggen",
+                Tag = "Flag",
                 Location = new Point(7, 66)
             };
 
-            cbModeCountryAnswers = new CheckBox
+            rbModeCountryAnswers = new RadioButton
             {
                 Name = "cbModeCountryAnswers",
                 Text = "Länder",
+                Tag = "Country",
                 Location = new Point(7, 20)
             };
 
-            cbModeCapitalAnswers = new CheckBox
+            rbModeCapitalAnswers = new RadioButton
             {
                 Name = "cbModeCapitalAnswers",
                 Text = "Hauptstädte",
+                Tag = "Capital",
                 Location = new Point(7, 43)
             };
 
-            cbModeFlagAnswers = new CheckBox
+            rbModeFlagAnswers = new RadioButton
             {
                 Name = "cbModeFlagAnswers",
                 Text = "Flaggen",
+                Tag = "Flag",
                 Location = new Point(7, 66)
             };
 
             #endregion create elements
 
-            #region add eventhandler
+            #region add events
 
             rbModeCountryQuestions.Click += (s, e) =>
             {
@@ -121,13 +131,20 @@ namespace GeoApp
 
             btnStartGame.Click += (s, e) =>
             {
-                App app = (App)Parent;
-                app.ShowQuestion();
+                RadioButton rbQ = grpGameModeQuestions.Controls.OfType<RadioButton>()
+                    .FirstOrDefault(r => r.Checked);
+
+                RadioButton rbA = grpGameModeAnswers.Controls.OfType<RadioButton>()
+                    .FirstOrDefault(r => r.Checked);
+
+                Enum.TryParse(rbQ.Tag.ToString(), out qt);
+                Enum.TryParse(rbA.Tag.ToString(), out at);
+                StartGame();
             };
 
-            #endregion add eventhandler
+            #endregion add events
 
-            #region add elements to controls
+            #region add to controls
 
             grpGameModeQuestions.Controls.AddRange(new Control[]
             {
@@ -138,9 +155,9 @@ namespace GeoApp
 
             grpGameModeAnswers.Controls.AddRange(new Control[] 
             {
-                cbModeCountryAnswers,
-                cbModeCapitalAnswers,
-                cbModeFlagAnswers
+                rbModeCountryAnswers,
+                rbModeCapitalAnswers,
+                rbModeFlagAnswers
             });
 
             panSelectGameModeMenu.Controls.Add(btnStartGame);
@@ -154,8 +171,14 @@ namespace GeoApp
 
             Controls.Add(panSelectGameMode);
 
-            #endregion add elements to controls
+            #endregion add to controls
 
+        }
+
+        private void StartGame()
+        {
+            App app = (App)Parent;
+            app.StartGame(qt, at);
         }
 
         public void ToggleAnswerBox()
@@ -166,22 +189,22 @@ namespace GeoApp
             switch (rb.Name)
             {
                 case "rbModeCountryQuestions":
-                    DisableAnswerType(cbModeCountryAnswers);
+                    DisableAnswerType(rbModeCountryAnswers);
                     break;
                 case "rbModeCapitalQuestions":
-                    DisableAnswerType(cbModeCapitalAnswers);
+                    DisableAnswerType(rbModeCapitalAnswers);
                     break;
                 case "rbModeFlagQuestions":
-                    DisableAnswerType(cbModeFlagAnswers);
+                    DisableAnswerType(rbModeFlagAnswers);
                     break;
                 default:
                     break;
             }
         }
 
-        private void DisableAnswerType(CheckBox cb)
+        private void DisableAnswerType(RadioButton cb)
         {
-            foreach (CheckBox c in grpGameModeAnswers.Controls.OfType<CheckBox>())
+            foreach (RadioButton c in grpGameModeAnswers.Controls.OfType<RadioButton>())
             {
                 c.Enabled = true;
                 c.Checked = false;

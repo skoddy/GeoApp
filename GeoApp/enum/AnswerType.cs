@@ -1,6 +1,6 @@
 ﻿namespace GeoApp
 {
-    enum QuestionType
+    public enum AnswerType
     {
         Country,
         Capital,

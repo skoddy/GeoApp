@@ -11,10 +11,10 @@ namespace GeoApp
         public App()
         {
             InitializeComponent();
-            ShowGameMode();
+            SelectGameMode();
         }
 
-        private void ShowGameMode()
+        private void SelectGameMode()
         {
             gameModeView = new GameModeView
             {
@@ -24,9 +24,9 @@ namespace GeoApp
             ToggleView(gameModeView);
         }
 
-        public void ShowQuestion()
+        public void StartGame(QuestionType qt, AnswerType at)
         {
-            gameView = new GameView
+            gameView = new GameView(qt, at)
             {
                 Dock = DockStyle.Fill
             };
