@@ -35,7 +35,7 @@ namespace GeoApp
         {
             InitializeComponent();
             InitializeQuiz();
-            CreateQuiz();
+            CheckAnswer();
         }
 
         private void InitializeQuiz()
@@ -114,7 +114,7 @@ namespace GeoApp
             questionIndex++;
         }
 
-        private void GiveAnswer()
+        private void CheckAnswer()
         {
             // Markierte Antwort suchen. In dem Panel panAnswers
             // nach einem RadioButton suchen, der den Status checked hat.
@@ -169,7 +169,7 @@ namespace GeoApp
 
         private void btnAnswer_Click(object sender, EventArgs e)
         {
-            GiveAnswer();
+            CheckAnswer();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
