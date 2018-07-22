@@ -28,20 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // panel
+            // 
+            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel.Location = new System.Drawing.Point(0, 0);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(341, 640);
+            this.panel.TabIndex = 1;
             // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 543);
+            this.ClientSize = new System.Drawing.Size(341, 640);
+            this.Controls.Add(this.panel);
             this.Name = "App";
-            this.Text = "Form1";
+            this.Text = "Geo Quiz";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private System.Windows.Forms.Panel panel;
     }
 }
 

@@ -12,15 +12,17 @@ namespace GeoApp
         public string Country { get; set; }
         public string Flag { get; set; }
         public string Capital { get; set; }
+        public string Continent { get; set; }
         public bool State { get; set; }
 
-        public GeoData(int id, string country, string flag, string capital, bool state = false )
+        public GeoData(int id, string country, string flag, string capital, string continent, bool state = false )
         {
             Id = id;
             Country = country;
             Flag = flag;
             Capital = capital;
             State = state;
+            Continent = continent;
         }
 
         public GeoData()

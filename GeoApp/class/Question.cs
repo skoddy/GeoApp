@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace GeoApp
 {
-    public abstract class Question<T> : IContent
+    public abstract class Question
     {
         // Der Konstruktor ruft die Factory Methode auf.
-        public Question(GeoData data, Database db, AnswerType at)
+        public Question(GeoData question, List<GeoData> anwers, AnswerType at, string continent = "")
         {
-            CreateAnswers(data, db, at);
+            CreateAnswers(question, anwers, at, continent);
         }
 
         public abstract AnswerType At { get; set; }
@@ -16,16 +17,12 @@ namespace GeoApp
         public abstract List<GeoData> WrongAnswers { get; set; }
         public abstract List<GeoData> AllAnswers { get; set; }
         public abstract string Text { get; set; }
-        public List<Answer<T>> Answers { get; } = new List<Answer<T>>();
-        public abstract T GetContent();
+        public List<Answer> Answers { get; } = new List<Answer>();
+        public abstract Label GetContent();
 
         // Die Factory Methode!!
-        public abstract void CreateAnswers(GeoData data, Database db, AnswerType at);
+        public abstract void CreateAnswers(GeoData question, List<GeoData> anwers, AnswerType at, string continent = "");
 
-        object IContent.GetContent()
-        {
-            return GetContent();
-        }
     }
 
 }

@@ -5,44 +5,31 @@ namespace GeoApp
 {
     public partial class App : Form
     {
-        GameModeView gameModeView;
-        GameView gameView;
-
         public App()
         {
             InitializeComponent();
-            SelectGameMode();
+            QuizMode();
         }
 
-        private void SelectGameMode()
+        public void Quiz()
         {
-            gameModeView = new GameModeView
-            {
-                Dock = DockStyle.Fill
-            };
-
-            ToggleView(gameModeView);
+            ToggleView(ucQuiz.Instance);
         }
 
-        public void StartGame(QuestionType qt, AnswerType at)
+        public void QuizMode()
         {
-            gameView = new GameView(qt, at)
-            {
-                Dock = DockStyle.Fill
-            };
-
-            ToggleView(gameView);
+            ToggleView(ucQuizMode.Instance);
         }
-
+ 
         private void ToggleView(UserControl uc)
         {
-            foreach (Control c in Controls.OfType<UserControl>())
+            foreach (Control c in panel.Controls.OfType<UserControl>())
             {
-                Controls.Remove(c);
+                panel.Controls.Remove(c);
             }
 
-            Controls.Add(uc);
+            panel.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
         }
-
     }
 }

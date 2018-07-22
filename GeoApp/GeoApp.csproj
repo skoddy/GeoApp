@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="class\Answer.cs" />
+    <Compile Include="class\IAnswerContent.cs" />
     <Compile Include="enum\AnswerType.cs" />
     <Compile Include="capital\CapitalAnswer.cs" />
     <Compile Include="capital\CapitalQuestion.cs" />
@@ -71,11 +72,19 @@
     <Compile Include="App.Designer.cs">
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\GameModeView.cs">
+    <Compile Include="flag\FlagAnswer.cs" />
+    <Compile Include="flag\FlagQuestion.cs" />
+    <Compile Include="ucQuiz.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="views\GameView.cs">
+    <Compile Include="ucQuiz.Designer.cs">
+      <DependentUpon>ucQuiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucQuizMode.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucQuizMode.Designer.cs">
+      <DependentUpon>ucQuizMode.cs</DependentUpon>
     </Compile>
     <Compile Include="class\GeoData.cs" />
     <Compile Include="class\Highscore.cs" />
@@ -88,8 +97,11 @@
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\GameModeView.resx">
-      <DependentUpon>GameModeView.cs</DependentUpon>
+    <EmbeddedResource Include="ucQuiz.resx">
+      <DependentUpon>ucQuiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucQuizMode.resx">
+      <DependentUpon>ucQuizMode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,6 +111,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
@@ -114,6 +127,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aland.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

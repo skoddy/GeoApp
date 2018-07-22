@@ -71,11 +71,15 @@ namespace GeoApp
             }
         }
 
-        public List<GeoData> GetData()
+        public List<GeoData> GetData(string continent = "")
         {
             List<GeoData> list = new List<GeoData>();
-
-            string query = "SELECT * FROM countries ORDER BY RAND()";
+            string opt = continent;
+            if (opt != "")
+            {
+                opt = $" WHERE continentName = '{continent}'";
+            }
+            string query = $"SELECT id, countryName, countryCode, capital, continentName FROM countries {opt} ORDER BY RAND()";
 
             if (OpenConnection() == true)
             {
@@ -86,9 +90,10 @@ namespace GeoApp
                 {
                     list.Add(new GeoData(
                         dataReader.GetInt32(0),
-                        dataReader.GetString(2),
                         dataReader.GetString(1),
-                        dataReader.GetString(10)
+                        dataReader.GetString(2),
+                        dataReader.GetString(3),
+                        dataReader.GetString(4)
                         ));
                 }
 
@@ -103,11 +108,16 @@ namespace GeoApp
             }
         }
 
-        public List<GeoData> GetFalseAnswers(int id)
+        public List<GeoData> GetFalseAnswers(int id, string continent = "")
         {
             List<GeoData> list = new List<GeoData>();
+            string opt = continent;
+            if (opt != "")
+            {
+                opt = $"AND continentName = '{continent}'";
+            }
 
-            string query = $"SELECT * FROM countries WHERE id != {id} ORDER BY RAND()";
+            string query = $"SELECT id, countryName, countryCode, capital, continentName FROM countries WHERE id != {id} {opt} ORDER BY RAND()";
 
             if (OpenConnection() == true)
             {
@@ -118,9 +128,10 @@ namespace GeoApp
                 {
                     list.Add(new GeoData(
                         dataReader.GetInt32(0),
-                        dataReader.GetString(2),
                         dataReader.GetString(1),
-                        dataReader.GetString(10)
+                        dataReader.GetString(2),
+                        dataReader.GetString(3),
+                        dataReader.GetString(4)
                         ));
                 }
 

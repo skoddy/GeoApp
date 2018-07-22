@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace GeoApp
 {
-    public class CapitalAnswer : Answer<Label>
+    public class CapitalAnswer : Answer
     {
         public CapitalAnswer(int posX, int posY, GeoData data) : base(posX, posY, data)
         {
@@ -18,26 +18,13 @@ namespace GeoApp
         public override string Text { get; set; }
         public override bool State { get; set; }
 
-        public override Label GetContent()
-        {
-            Label lbl = new Label
-            {
-                Name = Text,
-                Text = Text,
-                Location = new Point(PosX + 40, PosY),
-                AutoSize = true
-            };
-
-            return lbl;
-        }
-
-        public override RadioButton RadioButton()
+        public override RadioButton GetContent()
         {
             RadioButton rb = new RadioButton
             {
-                Tag = Text,
-                Name = State.ToString(),
-                Text = "",
+                Tag = State.ToString(),
+                Name = Text,
+                Text = Text,
                 Location = new Point(PosX, PosY),
                 AutoSize = true
             };

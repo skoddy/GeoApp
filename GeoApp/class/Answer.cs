@@ -2,20 +2,20 @@
 
 namespace GeoApp
 {
-    public abstract class Answer<T> : IContent
+    public abstract class Answer
     {
         public abstract int PosX { get; set; }
         public abstract int PosY { get; set; }
         public abstract string Text { get; set; }
         public abstract bool State { get; set; }
-        public Answer(int posX, int posY, GeoData data) { }
-
-        public abstract T GetContent();
-        public abstract RadioButton RadioButton();
-
-        object IContent.GetContent()
+        public Answer(int posX, int posY, GeoData data)
         {
-            return GetContent();
+            PosX = posX;
+            PosY = posY;
+            Text = data.Flag;
+            State = data.State;
         }
+        public abstract RadioButton GetContent();
+
     }
 }
