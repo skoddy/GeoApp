@@ -58,8 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Answer.cs" />
-    <Compile Include="Class\IAnswerContent.cs" />
+    <Compile Include="Answers\Answer.cs" />
     <Compile Include="Enum\AnswerType.cs" />
     <Compile Include="Answers\CapitalAnswer.cs" />
     <Compile Include="Questions\CapitalQuestion.cs" />
@@ -88,10 +87,9 @@
     </Compile>
     <Compile Include="Class\GeoData.cs" />
     <Compile Include="Class\Highscore.cs" />
-    <Compile Include="Class\IContent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Class\Question.cs" />
+    <Compile Include="Questions\Question.cs" />
     <Compile Include="Enum\QuestionType.cs" />
     <Compile Include="Class\User.cs" />
     <EmbeddedResource Include="App.resx">

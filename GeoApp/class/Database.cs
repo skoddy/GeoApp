@@ -71,17 +71,15 @@ namespace GeoApp
             }
         }
 
-        public List<GeoData> GetData(int max, string continent = "")
+        public List<GeoData> GetData(int max, string continent)
         {
             List<GeoData> list = new List<GeoData>();
             string opt = continent;
             string limit = "";
-            if (opt != "")
-            {
-                opt = $" WHERE continentName = '{continent}'";
-            }
+            opt = $" WHERE continentName = '{continent}'";
 
-            if (opt == "All")
+
+            if (continent == "All")
             {
                 opt = "";
             }
@@ -119,16 +117,14 @@ namespace GeoApp
             }
         }
 
-        public List<GeoData> GetFalseAnswers(int id, string continent = "")
+        public List<GeoData> GetFalseAnswers(int id, string continent)
         {
             List<GeoData> list = new List<GeoData>();
             string opt = continent;
-            if (opt != "")
-            {
-                opt = $"AND continentName = '{continent}'";
-            }
+            opt = $"AND continentName = '{continent}'";
 
-            if (opt == "All")
+
+            if (continent == "All")
             {
                 opt = "";
             }
