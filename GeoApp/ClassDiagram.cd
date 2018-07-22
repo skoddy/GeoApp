@@ -24,69 +24,49 @@
   <Class Name="GeoApp.CapitalQuestion">
     <Position X="0.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAUAAAAAAAAAAAAQAAAAACAACBAACAACAAAAAA=</HashCode>
+      <HashCode>AAAAAAAUAAAAAAAAAAAAQAAAAACAACBAACAACAAAAAA=</HashCode>
       <FileName>capital\CapitalQuestion.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GeoApp.Database">
-    <Position X="4" Y="9.25" Width="1.5" />
+  <Class Name="GeoApp.Database" Collapsed="true">
+    <Position X="4.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAEQBAAAgBABAAAQAAAAAAAAAAAgAAAAI=</HashCode>
       <FileName>class\Database.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GeoApp.GeoData">
-    <Position X="2.25" Y="9.25" Width="1.5" />
+  <Class Name="GeoApp.GeoData" Collapsed="true">
+    <Position X="4.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAACAAAIAAAgBAAAABAAAAAA=</HashCode>
       <FileName>class\GeoData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GeoApp.User">
-    <Position X="5.75" Y="11.5" Width="1.5" />
+  <Class Name="GeoApp.User" Collapsed="true">
+    <Position X="6.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACACCAAAAACABAAAAAAAAAAAAAAAAiAAAAAAAAAAA=</HashCode>
       <FileName>class\User.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GeoApp.Highscore">
-    <Position X="7.75" Y="9.25" Width="1.5" />
+  <Class Name="GeoApp.Highscore" Collapsed="true">
+    <Position X="6.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACACAAAAAAAAAAgAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>class\Highscore.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GeoApp.GameModeView">
-    <Position X="5.75" Y="9.25" Width="1.75" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+  <Class Name="GeoApp.App" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAwBAAAAIAJAAAAAAJAAAgAEEAAJEAgAAAEAAAQAE=</HashCode>
-      <FileName>views\GameModeView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GeoApp.GameView">
-    <Position X="4" Y="12.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AAAQgCAQAAAYQAAAhAQEAAAAAAQQAQkEAAACAAAAAAA=</HashCode>
-      <FileName>views\GameView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GeoApp.App">
-    <Position X="0.5" Y="9.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAgAAAAAAKAAAAiAAAAAABAAAAAAIAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAABACAAAACAAAAAABAAAAAAQQAAAA=</HashCode>
       <FileName>App.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.CountryQuestion">
     <Position X="2.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAUAAAAAAAAAAAAQAAAAACAACBAACAACAAAAAA=</HashCode>
+      <HashCode>AAAAAAAUAAAAAAAAAAAAQAAAAACAACBAACAACAAAAAA=</HashCode>
       <FileName>country\CountryQuestion.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -107,8 +87,22 @@
   <Class Name="GeoApp.FlagQuestion">
     <Position X="4.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAUAAAAAAAAAAAAQAAAAACAACBAACAACAAAAAA=</HashCode>
+      <HashCode>AAAAAAAUAAAAAAAAAAAAQAAAAACAACBAACAACAAAAAA=</HashCode>
       <FileName>flag\FlagQuestion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeoApp.ucQuiz" Collapsed="true">
+    <Position X="2.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUACAQCCgQABEAgACEAUACAAQQQQgEUAAigAAgAAI=</HashCode>
+      <FileName>ucQuiz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeoApp.ucQuizMode" Collapsed="true">
+    <Position X="2.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgAgICCECABEAAACQAAQCgACAQFAJQQgkACAAACA=</HashCode>
+      <FileName>ucQuizMode.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -27,8 +27,6 @@ namespace GeoApp
             try
             {
                 image = Image.FromFile($"c:\\quiz\\{Text}.png");
-
-
             }
             catch (Exception ex)
             {
