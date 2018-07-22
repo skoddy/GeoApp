@@ -34,21 +34,20 @@ namespace GeoApp
         private void ToggleAnswerBox(object sender, EventArgs e)
         {
             grpAnswerMode.Enabled = true;
-            RadioButton rb = panQuestionMode.Controls.OfType<RadioButton>()
+            RadioButton rbQuestionType = panQuestionMode.Controls.OfType<RadioButton>()
                 .FirstOrDefault(r => r.Checked);
 
-            switch (rb.Name)
+            Qt = (QuestionType)Enum.Parse(typeof(QuestionType), rbQuestionType.Tag.ToString());
+
+            switch (Qt)
             {
-                case "rbCountryQuestions":
-                    Qt = QuestionType.Country;
+                case QuestionType.Country:
                     DisableAnswerType(rbCountryAnswers);
                     break;
-                case "rbCapitalQuestions":
-                    Qt = QuestionType.Capital;
+                case QuestionType.Capital:
                     DisableAnswerType(rbCapitalAnswers);
                     break;
-                case "rbFlagQuestions":
-                    Qt = QuestionType.Flag;
+                case QuestionType.Flag:
                     DisableAnswerType(rbFlagAnswers);
                     break;
                 default:
@@ -56,40 +55,48 @@ namespace GeoApp
             }
         }
 
-        private void DisableAnswerType(RadioButton cb)
+        private void DisableAnswerType(RadioButton rb)
         {
-            foreach (RadioButton c in panAnswerMode.Controls.OfType<RadioButton>())
+            foreach (RadioButton r in panAnswerMode.Controls.OfType<RadioButton>())
             {
-                c.Enabled = true;
-                c.Checked = false;
+                r.Enabled = true;
+                r.Checked = false;
             }
 
-            cb.Checked = false;
-            cb.Enabled = false;
+            rb.Checked = false;
+            rb.Enabled = false;
         }
 
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
+            if (At)
+            {
+
+            }
             App app = (App)Parent.Parent;
             app.Quiz();
         }
 
-        private void rbCountryAnswers_CheckedChanged(object sender, EventArgs e)
+        private void SetAnswerType(object sender, EventArgs e)
         {
-            At = AnswerType.Country;
+            RadioButton rbAnswerType = panAnswerMode.Controls.OfType<RadioButton>()
+                .FirstOrDefault(r => r.Checked);
+
+            At = (AnswerType)Enum.Parse(typeof(AnswerType), rbAnswerType.Tag.ToString());
+
+            grpContinent.Enabled = true;
+        }
+
+        private void SetContinent(object sender, EventArgs e)
+        {
+            RadioButton rbContinent = panContinent.Controls.OfType<RadioButton>()
+                .FirstOrDefault(r => r.Checked);
+
+            Continent = rbContinent.Tag.ToString();
+
             btnStartQuiz.Enabled = true;
         }
 
-        private void rbCapitalAnswers_CheckedChanged(object sender, EventArgs e)
-        {
-            At = AnswerType.Capital;
-            btnStartQuiz.Enabled = true;
-        }
 
-        private void rbFlagAnswers_CheckedChanged(object sender, EventArgs e)
-        {
-            At = AnswerType.Flag;
-            btnStartQuiz.Enabled = true;
-        }
     }
 }

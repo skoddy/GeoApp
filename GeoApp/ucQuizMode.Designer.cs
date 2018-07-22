@@ -44,6 +44,15 @@
             this.rbCountryAnswers = new System.Windows.Forms.RadioButton();
             this.rbCapitalAnswers = new System.Windows.Forms.RadioButton();
             this.rbFlagAnswers = new System.Windows.Forms.RadioButton();
+            this.grpContinent = new System.Windows.Forms.GroupBox();
+            this.panContinent = new System.Windows.Forms.FlowLayoutPanel();
+            this.rbAll = new System.Windows.Forms.RadioButton();
+            this.rbAfrica = new System.Windows.Forms.RadioButton();
+            this.rbAsia = new System.Windows.Forms.RadioButton();
+            this.rbOceania = new System.Windows.Forms.RadioButton();
+            this.rbEurope = new System.Windows.Forms.RadioButton();
+            this.rbNorthAmerica = new System.Windows.Forms.RadioButton();
+            this.rbSouthAmerica = new System.Windows.Forms.RadioButton();
             this.panMenu.SuspendLayout();
             this.panQuiz.SuspendLayout();
             this.grpData.SuspendLayout();
@@ -51,6 +60,8 @@
             this.panQuestionMode.SuspendLayout();
             this.grpAnswerMode.SuspendLayout();
             this.panAnswerMode.SuspendLayout();
+            this.grpContinent.SuspendLayout();
+            this.panContinent.SuspendLayout();
             this.SuspendLayout();
             // 
             // panMenu
@@ -89,6 +100,7 @@
             this.panQuiz.Controls.Add(this.grpData);
             this.panQuiz.Controls.Add(this.grpQuestionMode);
             this.panQuiz.Controls.Add(this.grpAnswerMode);
+            this.panQuiz.Controls.Add(this.grpContinent);
             this.panQuiz.Dock = System.Windows.Forms.DockStyle.Top;
             this.panQuiz.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.panQuiz.Location = new System.Drawing.Point(0, 0);
@@ -146,6 +158,7 @@
             this.rbCountryQuestions.Name = "rbCountryQuestions";
             this.rbCountryQuestions.Size = new System.Drawing.Size(58, 17);
             this.rbCountryQuestions.TabIndex = 0;
+            this.rbCountryQuestions.Tag = "Country";
             this.rbCountryQuestions.Text = "Länder";
             this.rbCountryQuestions.UseVisualStyleBackColor = true;
             this.rbCountryQuestions.CheckedChanged += new System.EventHandler(this.ToggleAnswerBox);
@@ -157,6 +170,7 @@
             this.rbCapitalQuestions.Name = "rbCapitalQuestions";
             this.rbCapitalQuestions.Size = new System.Drawing.Size(83, 17);
             this.rbCapitalQuestions.TabIndex = 1;
+            this.rbCapitalQuestions.Tag = "Capital";
             this.rbCapitalQuestions.Text = "Hauptstädte";
             this.rbCapitalQuestions.UseVisualStyleBackColor = true;
             this.rbCapitalQuestions.CheckedChanged += new System.EventHandler(this.ToggleAnswerBox);
@@ -168,6 +182,7 @@
             this.rbFlagQuestions.Name = "rbFlagQuestions";
             this.rbFlagQuestions.Size = new System.Drawing.Size(63, 17);
             this.rbFlagQuestions.TabIndex = 2;
+            this.rbFlagQuestions.Tag = "Flag";
             this.rbFlagQuestions.Text = "Flaggen";
             this.rbFlagQuestions.UseVisualStyleBackColor = true;
             this.rbFlagQuestions.CheckedChanged += new System.EventHandler(this.ToggleAnswerBox);
@@ -203,9 +218,10 @@
             this.rbCountryAnswers.Name = "rbCountryAnswers";
             this.rbCountryAnswers.Size = new System.Drawing.Size(58, 17);
             this.rbCountryAnswers.TabIndex = 3;
+            this.rbCountryAnswers.Tag = "Country";
             this.rbCountryAnswers.Text = "Länder";
             this.rbCountryAnswers.UseVisualStyleBackColor = true;
-            this.rbCountryAnswers.CheckedChanged += new System.EventHandler(this.rbCountryAnswers_CheckedChanged);
+            this.rbCountryAnswers.Click += new System.EventHandler(this.SetAnswerType);
             // 
             // rbCapitalAnswers
             // 
@@ -214,9 +230,10 @@
             this.rbCapitalAnswers.Name = "rbCapitalAnswers";
             this.rbCapitalAnswers.Size = new System.Drawing.Size(83, 17);
             this.rbCapitalAnswers.TabIndex = 4;
+            this.rbCapitalAnswers.Tag = "Capital";
             this.rbCapitalAnswers.Text = "Hauptstädte";
             this.rbCapitalAnswers.UseVisualStyleBackColor = true;
-            this.rbCapitalAnswers.CheckedChanged += new System.EventHandler(this.rbCapitalAnswers_CheckedChanged);
+            this.rbCapitalAnswers.Click += new System.EventHandler(this.SetAnswerType);
             // 
             // rbFlagAnswers
             // 
@@ -225,9 +242,122 @@
             this.rbFlagAnswers.Name = "rbFlagAnswers";
             this.rbFlagAnswers.Size = new System.Drawing.Size(63, 17);
             this.rbFlagAnswers.TabIndex = 5;
+            this.rbFlagAnswers.Tag = "Flag";
             this.rbFlagAnswers.Text = "Flaggen";
             this.rbFlagAnswers.UseVisualStyleBackColor = true;
-            this.rbFlagAnswers.CheckedChanged += new System.EventHandler(this.rbFlagAnswers_CheckedChanged);
+            this.rbFlagAnswers.Click += new System.EventHandler(this.SetAnswerType);
+            // 
+            // grpContinent
+            // 
+            this.grpContinent.AutoSize = true;
+            this.grpContinent.Controls.Add(this.panContinent);
+            this.grpContinent.Enabled = false;
+            this.grpContinent.Location = new System.Drawing.Point(3, 314);
+            this.grpContinent.MinimumSize = new System.Drawing.Size(350, 0);
+            this.grpContinent.Name = "grpContinent";
+            this.grpContinent.Size = new System.Drawing.Size(353, 87);
+            this.grpContinent.TabIndex = 4;
+            this.grpContinent.TabStop = false;
+            this.grpContinent.Text = "Kontinent";
+            // 
+            // panContinent
+            // 
+            this.panContinent.Controls.Add(this.rbAll);
+            this.panContinent.Controls.Add(this.rbAfrica);
+            this.panContinent.Controls.Add(this.rbAsia);
+            this.panContinent.Controls.Add(this.rbOceania);
+            this.panContinent.Controls.Add(this.rbEurope);
+            this.panContinent.Controls.Add(this.rbNorthAmerica);
+            this.panContinent.Controls.Add(this.rbSouthAmerica);
+            this.panContinent.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.panContinent.Location = new System.Drawing.Point(7, 19);
+            this.panContinent.Name = "panContinent";
+            this.panContinent.Size = new System.Drawing.Size(340, 49);
+            this.panContinent.TabIndex = 4;
+            // 
+            // rbAll
+            // 
+            this.rbAll.AutoSize = true;
+            this.rbAll.Location = new System.Drawing.Point(3, 3);
+            this.rbAll.Name = "rbAll";
+            this.rbAll.Size = new System.Drawing.Size(42, 17);
+            this.rbAll.TabIndex = 3;
+            this.rbAll.Tag = "All";
+            this.rbAll.Text = "Alle";
+            this.rbAll.UseVisualStyleBackColor = true;
+            this.rbAll.CheckedChanged += new System.EventHandler(this.SetContinent);
+            // 
+            // rbAfrica
+            // 
+            this.rbAfrica.AutoSize = true;
+            this.rbAfrica.Location = new System.Drawing.Point(3, 26);
+            this.rbAfrica.Name = "rbAfrica";
+            this.rbAfrica.Size = new System.Drawing.Size(52, 17);
+            this.rbAfrica.TabIndex = 9;
+            this.rbAfrica.Tag = "Africa";
+            this.rbAfrica.Text = "Afrika";
+            this.rbAfrica.UseVisualStyleBackColor = true;
+            this.rbAfrica.CheckedChanged += new System.EventHandler(this.SetContinent);
+            // 
+            // rbAsia
+            // 
+            this.rbAsia.AutoSize = true;
+            this.rbAsia.Location = new System.Drawing.Point(61, 3);
+            this.rbAsia.Name = "rbAsia";
+            this.rbAsia.Size = new System.Drawing.Size(51, 17);
+            this.rbAsia.TabIndex = 5;
+            this.rbAsia.Tag = "Asia";
+            this.rbAsia.Text = "Asien";
+            this.rbAsia.UseVisualStyleBackColor = true;
+            this.rbAsia.CheckedChanged += new System.EventHandler(this.SetContinent);
+            // 
+            // rbOceania
+            // 
+            this.rbOceania.AutoSize = true;
+            this.rbOceania.Location = new System.Drawing.Point(61, 26);
+            this.rbOceania.Name = "rbOceania";
+            this.rbOceania.Size = new System.Drawing.Size(71, 17);
+            this.rbOceania.TabIndex = 8;
+            this.rbOceania.Tag = "Oceania";
+            this.rbOceania.Text = "Australien";
+            this.rbOceania.UseVisualStyleBackColor = true;
+            this.rbOceania.CheckedChanged += new System.EventHandler(this.SetContinent);
+            // 
+            // rbEurope
+            // 
+            this.rbEurope.AutoSize = true;
+            this.rbEurope.Location = new System.Drawing.Point(138, 3);
+            this.rbEurope.Name = "rbEurope";
+            this.rbEurope.Size = new System.Drawing.Size(59, 17);
+            this.rbEurope.TabIndex = 4;
+            this.rbEurope.Tag = "Europe";
+            this.rbEurope.Text = "Europa";
+            this.rbEurope.UseVisualStyleBackColor = true;
+            this.rbEurope.CheckedChanged += new System.EventHandler(this.SetContinent);
+            // 
+            // rbNorthAmerica
+            // 
+            this.rbNorthAmerica.AutoSize = true;
+            this.rbNorthAmerica.Location = new System.Drawing.Point(138, 26);
+            this.rbNorthAmerica.Name = "rbNorthAmerica";
+            this.rbNorthAmerica.Size = new System.Drawing.Size(89, 17);
+            this.rbNorthAmerica.TabIndex = 6;
+            this.rbNorthAmerica.Tag = "North America";
+            this.rbNorthAmerica.Text = "Nord Amerika";
+            this.rbNorthAmerica.UseVisualStyleBackColor = true;
+            this.rbNorthAmerica.CheckedChanged += new System.EventHandler(this.SetContinent);
+            // 
+            // rbSouthAmerica
+            // 
+            this.rbSouthAmerica.AutoSize = true;
+            this.rbSouthAmerica.Location = new System.Drawing.Point(233, 3);
+            this.rbSouthAmerica.Name = "rbSouthAmerica";
+            this.rbSouthAmerica.Size = new System.Drawing.Size(85, 17);
+            this.rbSouthAmerica.TabIndex = 7;
+            this.rbSouthAmerica.Tag = "South America";
+            this.rbSouthAmerica.Text = "Süd Amerika";
+            this.rbSouthAmerica.UseVisualStyleBackColor = true;
+            this.rbSouthAmerica.CheckedChanged += new System.EventHandler(this.SetContinent);
             // 
             // ucQuizMode
             // 
@@ -248,6 +378,9 @@
             this.grpAnswerMode.ResumeLayout(false);
             this.panAnswerMode.ResumeLayout(false);
             this.panAnswerMode.PerformLayout();
+            this.grpContinent.ResumeLayout(false);
+            this.panContinent.ResumeLayout(false);
+            this.panContinent.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -270,5 +403,14 @@
         private System.Windows.Forms.RadioButton rbCountryAnswers;
         private System.Windows.Forms.RadioButton rbCapitalAnswers;
         private System.Windows.Forms.RadioButton rbFlagAnswers;
+        private System.Windows.Forms.GroupBox grpContinent;
+        private System.Windows.Forms.FlowLayoutPanel panContinent;
+        private System.Windows.Forms.RadioButton rbAll;
+        private System.Windows.Forms.RadioButton rbEurope;
+        private System.Windows.Forms.RadioButton rbAsia;
+        private System.Windows.Forms.RadioButton rbNorthAmerica;
+        private System.Windows.Forms.RadioButton rbSouthAmerica;
+        private System.Windows.Forms.RadioButton rbOceania;
+        private System.Windows.Forms.RadioButton rbAfrica;
     }
 }

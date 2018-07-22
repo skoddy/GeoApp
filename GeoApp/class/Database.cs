@@ -80,6 +80,12 @@ namespace GeoApp
             {
                 opt = $" WHERE continentName = '{continent}'";
             }
+
+            if (opt == "All")
+            {
+                opt = "";
+            }
+
             if (max > 0)
             {
                 limit = $"LIMIT {max}";
@@ -120,6 +126,11 @@ namespace GeoApp
             if (opt != "")
             {
                 opt = $"AND continentName = '{continent}'";
+            }
+
+            if (opt == "All")
+            {
+                opt = "";
             }
 
             string query = $"SELECT id, countryName, countryCode, capital, continentName FROM countries WHERE id != {id} {opt} ORDER BY RAND()";

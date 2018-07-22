@@ -46,7 +46,7 @@ namespace GeoApp
             db = new Database();
 
             // Daten holen
-            listGeodata = db.GetData(maxQuestions, "Europe");
+            listGeodata = db.GetData(maxQuestions, ucQuizMode.Instance.Continent);
 
             // Objekt questions mit Abstrakter Klasse initialisieren
             questions = new Question[maxQuestions];
@@ -57,7 +57,7 @@ namespace GeoApp
                 GeoData question = listGeodata[i];
 
                 // Falsche Anworten holen (WHERE id != question.Id)
-                List<GeoData> answers = db.GetFalseAnswers(question.Id, "Europe");
+                List<GeoData> answers = db.GetFalseAnswers(question.Id, ucQuizMode.Instance.Continent);
 
                 // Je nach Fragentyp (Qt) wird das abstrakte Objekt
                 // mit einem konkreten Objekt 'gefüllt'.
