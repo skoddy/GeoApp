@@ -2,13 +2,6 @@ drop database if exists geoquiz;
 create database geoquiz;
 use geoquiz;
 
-create table geodata(
-	id int primary key auto_increment,
-    country varchar(20),
-    flag varchar(20),
-    capital varchar(20)
-);
-
 create table user(
 	id int primary key auto_increment,
     display_name varchar(30),
@@ -22,34 +15,27 @@ create table highscore(
     CreatedAt date
 );
 
-insert into geodata value(NULL, 'Deutschland', 'Deutschland.gif', 'Berlin');
-insert into geodata value(NULL, 'Frankreich', 'Frankreich.gif', 'Paris');
-insert into geodata value(NULL, 'Spanien', 'Spanien.gif', 'Madrid');
-insert into geodata value(NULL, 'Polen', 'Polen.gif', 'Warschau');
-insert into geodata value(NULL, 'Italien', 'Italien.gif', 'Rom');
-insert into geodata value(NULL, 'Österreich', 'Oesterreich.gif', 'Wien');
+CREATE TABLE IF NOT EXISTS countries (
+	id int(5) NOT NULL AUTO_INCREMENT,
+	countryCode char(2) NOT NULL DEFAULT '',
+	countryName varchar(45) NOT NULL DEFAULT '',
+	currencyCode char(3) DEFAULT NULL,
+	fipsCode char(2) DEFAULT NULL,
+	isoNumeric char(4) DEFAULT NULL,
+	north varchar(30) DEFAULT NULL,
+	south varchar(30) DEFAULT NULL,
+	east varchar(30) DEFAULT NULL,
+	west varchar(30) DEFAULT NULL,
+	capital varchar(30) DEFAULT NULL,
+	continentName varchar(15) DEFAULT NULL,
+	continent char(2) DEFAULT NULL,
+	languages varchar(100) DEFAULT NULL,
+	isoAlpha3 char(3) DEFAULT NULL,
+	geonameId int(10) DEFAULT NULL,
+	PRIMARY KEY (id)
+);
 
-CREATE TABLE IF NOT EXISTS `countries` (
-	`id` int(5) NOT NULL AUTO_INCREMENT,
-	`countryCode` char(2) NOT NULL DEFAULT '',
-	`countryName` varchar(45) NOT NULL DEFAULT '',
-	`currencyCode` char(3) DEFAULT NULL,
-	`fipsCode` char(2) DEFAULT NULL,
-	`isoNumeric` char(4) DEFAULT NULL,
-	`north` varchar(30) DEFAULT NULL,
-	`south` varchar(30) DEFAULT NULL,
-	`east` varchar(30) DEFAULT NULL,
-	`west` varchar(30) DEFAULT NULL,
-	`capital` varchar(30) DEFAULT NULL,
-	`continentName` varchar(15) DEFAULT NULL,
-	`continent` char(2) DEFAULT NULL,
-	`languages` varchar(100) DEFAULT NULL,
-	`isoAlpha3` char(3) DEFAULT NULL,
-	`geonameId` int(10) DEFAULT NULL,
-	PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
-
-INSERT INTO `countries` (`countryCode`, `countryName`, `currencyCode`, `fipsCode`, `isoNumeric`, `north`, `south`, `east`, `west`, `capital`, `continentName`, `continent`, `languages`, `isoAlpha3`, `geonameId`) VALUES
+INSERT INTO countries (countryCode, countryName, currencyCode, fipsCode, isoNumeric, north, south, east, west, capital, continentName, continent, languages, isoAlpha3, geonameId) VALUES
 ('AD', 'Andorra', 'EUR', 'AN', '020', 42.65604389629997, 42.42849259876837, 1.7865427778319827, 1.4071867141112762, 'Andorra la Vella', 'Europe', 'EU', 'ca', 'AND', 3041565),
 ('AE', 'United Arab Emirates', 'AED', 'AE', '784', 26.08415985107422, 22.633329391479492, 56.38166046142578, 51.58332824707031, 'Abu Dhabi', 'Asia', 'AS', 'ar-AE,fa,en,hi,ur', 'ARE', 290557),
 ('AF', 'Afghanistan', 'AFN', 'AF', '004', 38.483418, 29.377472, 74.879448, 60.478443, 'Kabul', 'Asia', 'AS', 'fa-AF,ps,uz-AF,tk', 'AFG', 1149361),
