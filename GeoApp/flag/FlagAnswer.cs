@@ -21,7 +21,10 @@ namespace GeoApp
             ResourceManager rm = Resources.ResourceManager;
 
             Image image = (Bitmap)rm.GetObject(Text.ToLower());
-
+            if(image == null)
+            {
+                MessageBox.Show(Text.ToLower());
+            }
             RadioButton rb = new RadioButton
             {
                 Tag = State.ToString(),

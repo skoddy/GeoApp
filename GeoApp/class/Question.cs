@@ -7,9 +7,9 @@ namespace GeoApp
     public abstract class Question
     {
         // Der Konstruktor ruft die Factory Methode auf.
-        public Question(GeoData question, List<GeoData> anwers, AnswerType at, string continent = "")
+        public Question(GeoData question, List<GeoData> anwers, AnswerType at)
         {
-            CreateAnswers(question, anwers, at, continent);
+            CreateAnswers(question, anwers, at);
         }
 
         public abstract AnswerType At { get; set; }
@@ -21,7 +21,7 @@ namespace GeoApp
         public abstract Label GetContent();
 
         // Die Factory Methode!!
-        public abstract void CreateAnswers(GeoData question, List<GeoData> anwers, AnswerType at, string continent = "");
+        public abstract void CreateAnswers(GeoData question, List<GeoData> anwers, AnswerType at);
 
     }
 

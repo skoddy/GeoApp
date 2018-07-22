@@ -71,15 +71,20 @@ namespace GeoApp
             }
         }
 
-        public List<GeoData> GetData(string continent = "")
+        public List<GeoData> GetData(int max, string continent = "")
         {
             List<GeoData> list = new List<GeoData>();
             string opt = continent;
+            string limit = "";
             if (opt != "")
             {
                 opt = $" WHERE continentName = '{continent}'";
             }
-            string query = $"SELECT id, countryName, countryCode, capital, continentName FROM countries {opt} ORDER BY RAND()";
+            if (max > 0)
+            {
+                limit = $"LIMIT {max}";
+            }
+            string query = $"SELECT id, countryName, countryCode, capital, continentName FROM countries {opt} ORDER BY RAND() {limit}";
 
             if (OpenConnection() == true)
             {

@@ -13,7 +13,8 @@ namespace GeoApp
         Random gen;
  
 
-        public CountryQuestion(GeoData question, List<GeoData> answers, AnswerType at, string continent = "") : base(question, answers, at, continent)
+        public CountryQuestion(GeoData question, List<GeoData> answers, AnswerType at) 
+            : base(question, answers, at)
         {
             Text = question.Country;
         }
@@ -24,7 +25,7 @@ namespace GeoApp
         public override List<GeoData> AllAnswers { get; set; }
         public override string Text { get; set; }
 
-        public override void CreateAnswers(GeoData question, List<GeoData> answers, AnswerType at, string continent = "")
+        public override void CreateAnswers(GeoData question, List<GeoData> answers, AnswerType at)
         {
   
             At = at;

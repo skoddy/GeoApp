@@ -34,89 +34,127 @@ namespace GeoApp
         public ucQuiz()
         {
             InitializeComponent();
-            Init();
+            InitializeQuiz();
             CreateQuiz();
         }
 
-        private void Init()
+        private void InitializeQuiz()
         {
-            int maxQuestions = 20;
+            // TODO: maxQuestions müsste woanders hin
+            int maxQuestions = 10;
+
             db = new Database();
-            listGeodata = db.GetData("Europe");
+
+            // Daten holen
+            listGeodata = db.GetData(maxQuestions, "Europe");
+
+            // Objekt questions mit Abstrakter Klasse initialisieren
             questions = new Question[maxQuestions];
 
             for (int i = 0; i < maxQuestions; i++)
             {
+                // Den ersten Eintrag als Frage speichern
                 GeoData question = listGeodata[i];
+
+                // Falsche Anworten holen (WHERE id != question.Id)
                 List<GeoData> answers = db.GetFalseAnswers(question.Id, "Europe");
+
+                // Je nach Fragentyp (Qt) wird das abstrakte Objekt
+                // mit einem konkreten Objekt 'gefüllt'.
+                // Als Parameter werden die Frage, die Antworten und der Antworttyp übergeben.
                 switch (ucQuizMode.Instance.Qt)
                 {
                     case QuestionType.Capital:
-                        questions[i] = new CapitalQuestion(question, answers, ucQuizMode.Instance.At, ucQuizMode.Instance.Continent);
+                        questions[i] = new CapitalQuestion(
+                            question, 
+                            answers, 
+                            ucQuizMode.Instance.At
+                            );
                         break;
                     case QuestionType.Country:
-                        questions[i] = new CountryQuestion(question, answers, ucQuizMode.Instance.At, ucQuizMode.Instance.Continent);
+                        questions[i] = new CountryQuestion(
+                            question, 
+                            answers, 
+                            ucQuizMode.Instance.At
+                            );
                         break;
                     case QuestionType.Flag:
-                        questions[i] = new FlagQuestion(question, answers, ucQuizMode.Instance.At, ucQuizMode.Instance.Continent);
+                        questions[i] = new FlagQuestion(
+                            question, 
+                            answers, 
+                            ucQuizMode.Instance.At
+                            );
                         break;
                 }
-
             }
         }
+
         private void CreateQuiz()
         {
+            // Frage, Anworten und Ergebnis entfernen
             grpQuestion.Controls.Clear();
             panAnswers.Controls.Clear();
-
-            btnNextQuestion.Enabled = false;
-            btnAnswer.Enabled = true;
             pbResult.Image = null;
             lblResult.Text = null;
 
+            // Buttons aktivieren und deaktivieren
+            btnNextQuestion.Enabled = false;
+            btnAnswer.Enabled = true;
+
+            // Frage anzeigen
             grpQuestion.Controls.Add(questions[questionIndex].GetContent());
 
+            // Anworten anzeigen
             foreach (Answer answer in questions[questionIndex].Answers)
             {
-                panAnswers.Controls.AddRange(new Control[]
-                {
-                        answer.GetContent()
-                });
+                panAnswers.Controls.Add(answer.GetContent());
             }
 
+            // Index erhöhen
             questionIndex++;
         }
 
         private void GiveAnswer()
         {
-            RadioButton rb = panAnswers.Controls.OfType<RadioButton>()
+            // Markierte Antwort suchen. In dem Panel panAnswers
+            // nach einem RadioButton suchen, der den Status checked hat.
+            RadioButton clickedAnswer = panAnswers.Controls.OfType<RadioButton>()
                 .FirstOrDefault(r => r.Checked);
 
-            RadioButton rb2 = panAnswers.Controls.OfType<RadioButton>()
+            // Richtige Antwort suchen. Da die Antworten im Tag den Status ("True"/"False") gepeichert haben,
+            // suchen wir im Panel panAnswers nach einem RadioButton,
+            // der als Tag "True" hat.
+            RadioButton correctAnswer = panAnswers.Controls.OfType<RadioButton>()
                 .First(r => r.Tag.ToString() == "True");
 
-            if (rb != null)
+            if (clickedAnswer != null)
             {
-
-                if (rb.Tag.ToString() == "True")
+                // Richtige Antwort
+                if (clickedAnswer.Tag.ToString() == "True")
                 {
-                    rb.ForeColor = Color.Green;
+                    clickedAnswer.ForeColor = Color.Green;
                     lblResult.Text = "Richtig!";
                 }
+                // Falsche Antwort
                 else
                 {
-                    ResourceManager rm = Resources.ResourceManager;
-                    Image image = (Bitmap)rm.GetObject(rb2.Name.ToLower());
+                    clickedAnswer.ForeColor = Color.Red;
+                    correctAnswer.ForeColor = Color.Green;
+                    lblResult.Text = "Falsch.\nRichtige Antwort: " + correctAnswer.Text;
 
+                    ResourceManager rm = Resources.ResourceManager;
+                    Image image = (Bitmap)rm.GetObject(correctAnswer.Name.ToLower());
+
+                    // In CorrectAnswer.Name steht entweder eine Stadt ("Berlin"), ein Land ("Deutschland")
+                    // oder die Länderkennung ("DE").
+                    // Die Bilder der Flaggen sind als Resource mit der Länderkennung als Name gepeichert, zb: "de.png".
+                    // image gibt nur einen Wert zurück, wenn in CorrectAnswer.Name die Länderkennung steht.
+                    // Somit war die Antwort eine Flagge und kann angezeigt werden.
                     if (image != null)
                     {
                         pbResult.Image = image;
                         pbResult.Size = new Size(image.Width + 20, image.Height);
                     }
-
-                    rb.ForeColor = Color.Red;
-                    rb2.ForeColor = Color.Green;
-                    lblResult.Text = "Falsch.\nRichtige Antwort: " + rb2.Text;
                 }
 
                 btnAnswer.Enabled = false;

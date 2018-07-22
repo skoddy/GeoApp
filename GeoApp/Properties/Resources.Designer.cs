@@ -245,7 +245,7 @@ namespace GeoApp.Properties {
         /// </summary>
         public static System.Drawing.Bitmap _is {
             get {
-                object obj = ResourceManager.GetObject("_is", resourceCulture);
+                object obj = ResourceManager.GetObject("is", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,16 +256,6 @@ namespace GeoApp.Properties {
         public static System.Drawing.Bitmap _Islamic_Conference {
             get {
                 object obj = ResourceManager.GetObject("_Islamic_Conference", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap _Kosovo {
-            get {
-                object obj = ResourceManager.GetObject("_Kosovo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2866,6 +2856,16 @@ namespace GeoApp.Properties {
         public static System.Drawing.Bitmap ws {
             get {
                 object obj = ResourceManager.GetObject("ws", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap xk {
+            get {
+                object obj = ResourceManager.GetObject("xk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

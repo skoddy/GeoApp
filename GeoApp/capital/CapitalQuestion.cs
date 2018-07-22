@@ -7,12 +7,10 @@ namespace GeoApp
 {
     public class CapitalQuestion : Question
     {
-        Random gen;
-
         public override AnswerType At { get; set; }
 
-        public CapitalQuestion(GeoData question, List<GeoData> answers, AnswerType at, string continent = "") 
-            : base(question, answers, at, continent)
+        public CapitalQuestion(GeoData question, List<GeoData> answers, AnswerType at) 
+            : base(question, answers, at)
         {
             Text = question.Capital;
         }
@@ -22,11 +20,12 @@ namespace GeoApp
         public override string Text { get; set; }
         public override GeoData CorrectAnswer { get; set; }
 
-        public override void CreateAnswers(GeoData question, List<GeoData> answers, AnswerType at, string continent = "")
+        public override void CreateAnswers(GeoData question, List<GeoData> answers, AnswerType at)
         {
  
+            Random gen = new Random(Guid.NewGuid().GetHashCode());
+
             At = at;
-            gen = new Random(Guid.NewGuid().GetHashCode());
             CorrectAnswer = question;
             CorrectAnswer.State = true;
 
@@ -67,6 +66,7 @@ namespace GeoApp
                 Text = Text,
                 Location = new Point(10, 20)
             };
+
             lbl.Font = new Font(lbl.Font.FontFamily, 14);
 
             return lbl;
