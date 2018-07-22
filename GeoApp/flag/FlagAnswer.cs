@@ -16,8 +16,6 @@ namespace GeoApp
         {
         }
 
-        public override int PosX { get; set; }
-        public override int PosY { get; set; }
         public override string Text { get; set; }
         public override bool State { get; set; }
 
