@@ -7,6 +7,8 @@ namespace GeoApp
     {
         public CountryAnswer(GeoData data) : base(data)
         {
+            Text = data.Country;
+            State = data.State;
         }
 
         public override string Text { get; set; }

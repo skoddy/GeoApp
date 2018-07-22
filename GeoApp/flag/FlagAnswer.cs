@@ -1,11 +1,6 @@
 ﻿using GeoApp.Properties;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GeoApp
@@ -14,6 +9,8 @@ namespace GeoApp
     {
         public FlagAnswer(GeoData data) : base(data)
         {
+            Text = data.Flag;
+            State = data.State;
         }
 
         public override string Text { get; set; }
@@ -22,7 +19,9 @@ namespace GeoApp
         public override RadioButton GetContent()
         {
             ResourceManager rm = Resources.ResourceManager;
+
             Image image = (Bitmap)rm.GetObject(Text.ToLower());
+
             RadioButton rb = new RadioButton
             {
                 Tag = State.ToString(),
