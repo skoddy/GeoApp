@@ -4,38 +4,33 @@ using System.Windows.Forms;
 
 namespace GeoApp
 {
-    public partial class ucQuizMode : UserControl
+    public partial class ucQuizConfig : UserControl
     {
-        // Singleton Pattern
-        private static ucQuizMode _instance;
+        // Singleton Pattern, Best Pattern :)
+        private static ucQuizConfig _instance;
 
-        public static ucQuizMode Instance
+        public static ucQuizConfig Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new ucQuizMode();
+                    _instance = new ucQuizConfig();
                 }
                 return _instance;
             }
         }
-
-        public string Continent { get; set; }
-        public AnswerType At { get; set; }
-        public QuestionType Qt { get; set; }
-
-        public ucQuizMode()
+        
+        public ucQuizConfig()
         {
             InitializeComponent();
-            
         }
 
         private void ToggleAnswerBox()
         {
             grpAnswerMode.Enabled = true;
 
-            switch (Qt)
+            switch (QuizConfig.Instance.Qt)
             {
                 case QuestionType.Country:
                     DisableAnswerType(rbCountryAnswers);
@@ -65,6 +60,7 @@ namespace GeoApp
 
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
+            _instance = null;
             App app = (App)Parent.Parent;
             app.Quiz();
         }
@@ -74,7 +70,8 @@ namespace GeoApp
             RadioButton rbQuestionType = panQuestionMode.Controls.OfType<RadioButton>()
                 .FirstOrDefault(r => r.Checked);
 
-            Qt = (QuestionType)Enum.Parse(typeof(QuestionType), rbQuestionType.Tag.ToString());
+            QuizConfig.Instance.Qt = (QuestionType)Enum
+                .Parse(typeof(QuestionType), rbQuestionType.Tag.ToString());
 
             ToggleAnswerBox();
         }
@@ -84,7 +81,7 @@ namespace GeoApp
             RadioButton rbAnswerType = panAnswerMode.Controls.OfType<RadioButton>()
                 .FirstOrDefault(r => r.Checked);
 
-            At = (AnswerType)Enum.Parse(typeof(AnswerType), rbAnswerType.Tag.ToString());
+            QuizConfig.Instance.At = (AnswerType)Enum.Parse(typeof(AnswerType), rbAnswerType.Tag.ToString());
 
             grpContinent.Enabled = true;
         }
@@ -94,10 +91,16 @@ namespace GeoApp
             RadioButton rbContinent = panContinent.Controls.OfType<RadioButton>()
                 .FirstOrDefault(r => r.Checked);
 
-            Continent = rbContinent.Tag.ToString();
+            QuizConfig.Instance.Continent = rbContinent.Tag.ToString();
 
             btnStartQuiz.Enabled = true;
         }
 
+        private void CancelConfig(object sender, EventArgs e)
+        {
+            _instance = null;
+            App app = (App)Parent.Parent;
+            app.User();
+        }
     }
 }

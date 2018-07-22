@@ -73,17 +73,18 @@
     </Compile>
     <Compile Include="Answers\FlagAnswer.cs" />
     <Compile Include="Questions\FlagQuestion.cs" />
+    <Compile Include="QuizConfig.cs" />
     <Compile Include="ucQuiz.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucQuiz.Designer.cs">
       <DependentUpon>ucQuiz.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucQuizMode.cs">
+    <Compile Include="ucQuizConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucQuizMode.Designer.cs">
-      <DependentUpon>ucQuizMode.cs</DependentUpon>
+    <Compile Include="ucQuizConfig.Designer.cs">
+      <DependentUpon>ucQuizConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\GeoData.cs" />
     <Compile Include="Class\Highscore.cs" />
@@ -91,15 +92,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questions\Question.cs" />
     <Compile Include="Enum\QuestionType.cs" />
-    <Compile Include="Class\User.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="ucUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucUser.Designer.cs">
+      <DependentUpon>ucUser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucQuiz.resx">
       <DependentUpon>ucQuiz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucQuizMode.resx">
-      <DependentUpon>ucQuizMode.cs</DependentUpon>
+    <EmbeddedResource Include="ucQuizConfig.resx">
+      <DependentUpon>ucQuizConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -111,6 +118,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucUser.resx">
+      <DependentUpon>ucUser.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

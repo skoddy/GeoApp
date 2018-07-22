@@ -44,9 +44,11 @@ namespace GeoApp
             int maxQuestions = 10;
 
             db = new Database();
-
+            
+            lblDisplayName.Text += User.Instance.DisplayName;
+            lblScore.Text += User.Instance.Score.ToString();
             // Daten holen
-            listGeodata = db.GetData(maxQuestions, ucQuizMode.Instance.Continent);
+            listGeodata = db.GetData(maxQuestions, QuizConfig.Instance.Continent);
 
             // Objekt questions mit Abstrakter Klasse initialisieren
             questions = new Question[maxQuestions];
@@ -57,32 +59,32 @@ namespace GeoApp
                 GeoData question = listGeodata[i];
 
                 // Falsche Anworten holen (WHERE id != question.Id)
-                List<GeoData> answers = db.GetFalseAnswers(question.Id, ucQuizMode.Instance.Continent);
+                List<GeoData> answers = db.GetFalseAnswers(question.Id, QuizConfig.Instance.Continent);
 
                 // Je nach Fragentyp (Qt) wird das abstrakte Objekt
                 // mit einem konkreten Objekt 'gefüllt'.
                 // Als Parameter werden die Frage, die Antworten und der Antworttyp übergeben.
-                switch (ucQuizMode.Instance.Qt)
+                switch (QuizConfig.Instance.Qt)
                 {
                     case QuestionType.Capital:
                         questions[i] = new CapitalQuestion(
                             question, 
-                            answers, 
-                            ucQuizMode.Instance.At
+                            answers,
+                            QuizConfig.Instance.At
                             );
                         break;
                     case QuestionType.Country:
                         questions[i] = new CountryQuestion(
                             question, 
-                            answers, 
-                            ucQuizMode.Instance.At
+                            answers,
+                            QuizConfig.Instance.At
                             );
                         break;
                     case QuestionType.Flag:
                         questions[i] = new FlagQuestion(
                             question, 
-                            answers, 
-                            ucQuizMode.Instance.At
+                            answers,
+                            QuizConfig.Instance.At
                             );
                         break;
                 }
@@ -100,6 +102,8 @@ namespace GeoApp
             // Buttons aktivieren und deaktivieren
             btnNextQuestion.Enabled = false;
             btnAnswer.Enabled = true;
+
+            lblScore.Text = "Punkte: " + User.Instance.Score.ToString();
 
             // Frage anzeigen
             grpQuestion.Controls.Add(questions[questionIndex].GetContent());
@@ -134,6 +138,7 @@ namespace GeoApp
                 {
                     clickedAnswer.ForeColor = Color.Green;
                     lblResult.Text = "Richtig!";
+                    User.Instance.Score += 10;
                 }
                 // Falsche Antwort
                 else
@@ -174,9 +179,15 @@ namespace GeoApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            _instance = null;
-            App app = (App)Parent.Parent;
-            app.QuizMode();
+            DialogResult dialogResult = MessageBox.Show("Die Punkte gehen dabei verloren.", "Quiz abbrechen", MessageBoxButtons.OKCancel);
+            if (dialogResult == DialogResult.OK)
+            {
+                _instance = null;
+                User.Instance.Score = 0;
+                App app = (App)Parent.Parent;
+                app.QuizConfig();
+            }
+
         }
     }
 }

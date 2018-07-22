@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panQuiz = new System.Windows.Forms.FlowLayoutPanel();
             this.grpData = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
             this.grpQuestion = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpAnswers = new System.Windows.Forms.GroupBox();
@@ -42,20 +42,21 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.grpResult = new System.Windows.Forms.GroupBox();
             this.lblResult = new System.Windows.Forms.Label();
+            this.pbResult = new System.Windows.Forms.PictureBox();
             this.panMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNextQuestion = new System.Windows.Forms.Button();
             this.btnAnswer = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.pbResult = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblDisplayName = new System.Windows.Forms.Label();
             this.panQuiz.SuspendLayout();
             this.grpData.SuspendLayout();
             this.grpQuestion.SuspendLayout();
             this.grpAnswers.SuspendLayout();
             this.panAnswers.SuspendLayout();
             this.grpResult.SuspendLayout();
-            this.panMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).BeginInit();
+            this.panMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panQuiz
@@ -73,7 +74,8 @@
             // 
             // grpData
             // 
-            this.grpData.Controls.Add(this.label4);
+            this.grpData.Controls.Add(this.lblDisplayName);
+            this.grpData.Controls.Add(this.lblScore);
             this.grpData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpData.Location = new System.Drawing.Point(3, 3);
             this.grpData.Name = "grpData";
@@ -81,15 +83,15 @@
             this.grpData.TabIndex = 1;
             this.grpData.TabStop = false;
             // 
-            // label4
+            // lblScore
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 24);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Punkte: 0";
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.Location = new System.Drawing.Point(191, 16);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(78, 24);
+            this.lblScore.TabIndex = 1;
+            this.lblScore.Text = "Punkte: ";
             // 
             // grpQuestion
             // 
@@ -207,6 +209,14 @@
             this.lblResult.TabIndex = 1;
             this.lblResult.Text = "Das hier ist eine Anwort?\r\n\r\n";
             // 
+            // pbResult
+            // 
+            this.pbResult.Location = new System.Drawing.Point(226, 14);
+            this.pbResult.Name = "pbResult";
+            this.pbResult.Size = new System.Drawing.Size(100, 50);
+            this.pbResult.TabIndex = 3;
+            this.pbResult.TabStop = false;
+            // 
             // panMenu
             // 
             this.panMenu.Controls.Add(this.btnNextQuestion);
@@ -249,13 +259,15 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // pbResult
+            // lblDisplayName
             // 
-            this.pbResult.Location = new System.Drawing.Point(226, 14);
-            this.pbResult.Name = "pbResult";
-            this.pbResult.Size = new System.Drawing.Size(100, 50);
-            this.pbResult.TabIndex = 3;
-            this.pbResult.TabStop = false;
+            this.lblDisplayName.AutoSize = true;
+            this.lblDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisplayName.Location = new System.Drawing.Point(7, 16);
+            this.lblDisplayName.Name = "lblDisplayName";
+            this.lblDisplayName.Size = new System.Drawing.Size(71, 24);
+            this.lblDisplayName.TabIndex = 2;
+            this.lblDisplayName.Text = "Name: ";
             // 
             // ucQuiz
             // 
@@ -277,8 +289,8 @@
             this.panAnswers.PerformLayout();
             this.grpResult.ResumeLayout(false);
             this.grpResult.PerformLayout();
-            this.panMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).EndInit();
+            this.panMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -299,10 +311,11 @@
         private System.Windows.Forms.Button btnAnswer;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox grpData;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.FlowLayoutPanel panAnswers;
         private System.Windows.Forms.PictureBox pbResult;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblDisplayName;
     }
 }

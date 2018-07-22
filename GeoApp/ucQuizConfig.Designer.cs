@@ -1,6 +1,6 @@
 ﻿namespace GeoApp
 {
-    partial class ucQuizMode
+    partial class ucQuizConfig
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -94,6 +94,7 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Abbrechen";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.CancelConfig);
             // 
             // panQuiz
             // 
@@ -124,9 +125,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 24);
+            this.label3.Size = new System.Drawing.Size(169, 24);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Quiz Modus";
+            this.label3.Text = "Quiz Einstellungen";
             // 
             // grpQuestionMode
             // 
@@ -359,13 +360,13 @@
             this.rbSouthAmerica.UseVisualStyleBackColor = true;
             this.rbSouthAmerica.CheckedChanged += new System.EventHandler(this.SetContinent);
             // 
-            // ucQuizMode
+            // ucQuizConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panMenu);
             this.Controls.Add(this.panQuiz);
-            this.Name = "ucQuizMode";
+            this.Name = "ucQuizConfig";
             this.Size = new System.Drawing.Size(357, 597);
             this.panMenu.ResumeLayout(false);
             this.panQuiz.ResumeLayout(false);

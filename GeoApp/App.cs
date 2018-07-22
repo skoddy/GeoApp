@@ -8,7 +8,12 @@ namespace GeoApp
         public App()
         {
             InitializeComponent();
-            QuizMode();
+            User();
+        }
+
+        public void User()
+        {
+            ToggleView(ucUser.Instance);
         }
 
         public void Quiz()
@@ -16,9 +21,9 @@ namespace GeoApp
             ToggleView(ucQuiz.Instance);
         }
 
-        public void QuizMode()
+        public void QuizConfig()
         {
-            ToggleView(ucQuizMode.Instance);
+            ToggleView(ucQuizConfig.Instance);
         }
  
         private void ToggleView(UserControl uc)
