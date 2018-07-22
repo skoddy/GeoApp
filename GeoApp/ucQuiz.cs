@@ -35,7 +35,7 @@ namespace GeoApp
         {
             InitializeComponent();
             InitializeQuiz();
-            CheckAnswer();
+            CreateQuiz();
         }
 
         private void InitializeQuiz()
