@@ -65,7 +65,7 @@ namespace GeoApp
 
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
-             App app = (App)Parent.Parent;
+            App app = (App)Parent.Parent;
             app.Quiz();
         }
 
