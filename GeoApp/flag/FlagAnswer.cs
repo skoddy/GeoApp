@@ -1,7 +1,9 @@
-﻿using System;
+﻿using GeoApp.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,19 +23,9 @@ namespace GeoApp
 
         public override RadioButton GetContent()
         {
-            Image image = null;
-            RadioButton rb;
-
-            try
-            {
-                image = Image.FromFile($"c:\\quiz\\{Text}.png");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Bild nicht gefunden: " + ex.Message);
-            }
-
-            rb = new RadioButton
+            ResourceManager rm = Resources.ResourceManager;
+            Image image = (Bitmap)rm.GetObject(Text.ToLower());
+            RadioButton rb = new RadioButton
             {
                 Tag = State.ToString(),
                 Name = Text,

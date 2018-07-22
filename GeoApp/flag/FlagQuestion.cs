@@ -1,7 +1,9 @@
-﻿using System;
+﻿using GeoApp.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -64,7 +66,8 @@ namespace GeoApp
 
         public override Label GetContent()
         {
-            Image image = Image.FromFile($"c:\\quiz\\{Text}.png");
+            ResourceManager rm = Resources.ResourceManager;
+            Image image = (Bitmap)rm.GetObject(Text.ToLower());
             Label lbl = new Label
             {
                 Size = new Size(image.Width, image.Height),
