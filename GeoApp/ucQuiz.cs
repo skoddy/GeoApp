@@ -1,7 +1,9 @@
-﻿using System;
+﻿using GeoApp.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace GeoApp
@@ -65,18 +67,18 @@ namespace GeoApp
         private void CreateQuiz()
         {
             grpQuestion.Controls.Clear();
-            grpAnswers.Controls.Clear();
+            panAnswers.Controls.Clear();
 
             btnNextQuestion.Enabled = false;
             btnAnswer.Enabled = true;
-
+            pbResult.Image = null;
             lblResult.Text = null;
 
             grpQuestion.Controls.Add(questions[questionIndex].GetContent());
 
             foreach (Answer answer in questions[questionIndex].Answers)
             {
-                grpAnswers.Controls.AddRange(new Control[]
+                panAnswers.Controls.AddRange(new Control[]
                 {
                         answer.GetContent()
                 });
@@ -87,10 +89,10 @@ namespace GeoApp
 
         private void GiveAnswer()
         {
-            RadioButton rb = grpAnswers.Controls.OfType<RadioButton>()
+            RadioButton rb = panAnswers.Controls.OfType<RadioButton>()
                 .FirstOrDefault(r => r.Checked);
 
-            RadioButton rb2 = grpAnswers.Controls.OfType<RadioButton>()
+            RadioButton rb2 = panAnswers.Controls.OfType<RadioButton>()
                 .First(r => r.Tag.ToString() == "True");
 
             if (rb != null)
@@ -103,6 +105,15 @@ namespace GeoApp
                 }
                 else
                 {
+                    ResourceManager rm = Resources.ResourceManager;
+                    Image image = (Bitmap)rm.GetObject(rb2.Name.ToLower());
+
+                    if (image != null)
+                    {
+                        pbResult.Image = image;
+                        pbResult.Size = new Size(image.Width + 20, image.Height);
+                    }
+
                     rb.ForeColor = Color.Red;
                     rb2.ForeColor = Color.Green;
                     lblResult.Text = "Falsch.\nRichtige Antwort: " + rb2.Text;

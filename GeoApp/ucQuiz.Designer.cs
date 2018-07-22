@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panQuiz = new System.Windows.Forms.FlowLayoutPanel();
             this.grpData = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.grpQuestion = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpAnswers = new System.Windows.Forms.GroupBox();
@@ -46,6 +46,8 @@
             this.btnNextQuestion = new System.Windows.Forms.Button();
             this.btnAnswer = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.pbResult = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panQuiz.SuspendLayout();
             this.grpData.SuspendLayout();
             this.grpQuestion.SuspendLayout();
@@ -53,6 +55,7 @@
             this.panAnswers.SuspendLayout();
             this.grpResult.SuspendLayout();
             this.panMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbResult)).BeginInit();
             this.SuspendLayout();
             // 
             // panQuiz
@@ -71,10 +74,10 @@
             // grpData
             // 
             this.grpData.Controls.Add(this.label4);
-            this.grpData.Controls.Add(this.label3);
+            this.grpData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpData.Location = new System.Drawing.Point(3, 3);
             this.grpData.Name = "grpData";
-            this.grpData.Size = new System.Drawing.Size(350, 55);
+            this.grpData.Size = new System.Drawing.Size(353, 55);
             this.grpData.TabIndex = 1;
             this.grpData.TabStop = false;
             // 
@@ -82,54 +85,50 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(199, 16);
+            this.label4.Location = new System.Drawing.Point(3, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 24);
             this.label4.TabIndex = 1;
             this.label4.Text = "Punkte: 0";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Zeit: 00:00";
-            // 
             // grpQuestion
             // 
+            this.grpQuestion.AutoSize = true;
             this.grpQuestion.Controls.Add(this.label1);
+            this.grpQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpQuestion.Location = new System.Drawing.Point(3, 64);
+            this.grpQuestion.MinimumSize = new System.Drawing.Size(350, 50);
             this.grpQuestion.Name = "grpQuestion";
-            this.grpQuestion.Size = new System.Drawing.Size(350, 61);
+            this.grpQuestion.Size = new System.Drawing.Size(353, 50);
             this.grpQuestion.TabIndex = 0;
             this.grpQuestion.TabStop = false;
             // 
             // label1
             // 
+            this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 16);
+            this.label1.MinimumSize = new System.Drawing.Size(340, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 42);
+            this.label1.Size = new System.Drawing.Size(340, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Das hier ist eine Frage!\r\n\r\n\r\nl\r\n";
+            this.label1.Text = "Das hier ist eine Frage!";
             // 
             // grpAnswers
             // 
             this.grpAnswers.AutoSize = true;
             this.grpAnswers.Controls.Add(this.panAnswers);
-            this.grpAnswers.Location = new System.Drawing.Point(3, 131);
+            this.grpAnswers.Location = new System.Drawing.Point(3, 120);
             this.grpAnswers.MinimumSize = new System.Drawing.Size(350, 0);
             this.grpAnswers.Name = "grpAnswers";
-            this.grpAnswers.Size = new System.Drawing.Size(353, 142);
+            this.grpAnswers.Size = new System.Drawing.Size(353, 130);
             this.grpAnswers.TabIndex = 1;
             this.grpAnswers.TabStop = false;
             // 
             // panAnswers
             // 
+            this.panAnswers.AutoSize = true;
             this.panAnswers.Controls.Add(this.rbAnswerOne);
             this.panAnswers.Controls.Add(this.rbAnswerTwo);
             this.panAnswers.Controls.Add(this.radioButton3);
@@ -137,7 +136,7 @@
             this.panAnswers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.panAnswers.Location = new System.Drawing.Point(7, 19);
             this.panAnswers.Name = "panAnswers";
-            this.panAnswers.Size = new System.Drawing.Size(340, 104);
+            this.panAnswers.Size = new System.Drawing.Size(340, 92);
             this.panAnswers.TabIndex = 4;
             // 
             // rbAnswerOne
@@ -186,22 +185,27 @@
             // 
             // grpResult
             // 
+            this.grpResult.AutoSize = true;
             this.grpResult.Controls.Add(this.lblResult);
-            this.grpResult.Location = new System.Drawing.Point(3, 279);
+            this.grpResult.Controls.Add(this.pbResult);
+            this.grpResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpResult.Location = new System.Drawing.Point(3, 256);
+            this.grpResult.MinimumSize = new System.Drawing.Size(350, 0);
             this.grpResult.Name = "grpResult";
-            this.grpResult.Size = new System.Drawing.Size(350, 58);
+            this.grpResult.Size = new System.Drawing.Size(353, 83);
             this.grpResult.TabIndex = 2;
             this.grpResult.TabStop = false;
             // 
             // lblResult
             // 
+            this.lblResult.AutoSize = true;
             this.lblResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.Location = new System.Drawing.Point(3, 16);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(344, 39);
+            this.lblResult.Size = new System.Drawing.Size(217, 48);
             this.lblResult.TabIndex = 1;
-            this.lblResult.Text = "Das hier ist eine Anwort?\r\n\r\nkkjh\r\nhjk\r\nhjk\r\nhjk\r\nhjk";
+            this.lblResult.Text = "Das hier ist eine Anwort?\r\n\r\n";
             // 
             // panMenu
             // 
@@ -245,6 +249,14 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // pbResult
+            // 
+            this.pbResult.Location = new System.Drawing.Point(226, 14);
+            this.pbResult.Name = "pbResult";
+            this.pbResult.Size = new System.Drawing.Size(100, 50);
+            this.pbResult.TabIndex = 3;
+            this.pbResult.TabStop = false;
+            // 
             // ucQuiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,11 +270,15 @@
             this.grpData.ResumeLayout(false);
             this.grpData.PerformLayout();
             this.grpQuestion.ResumeLayout(false);
+            this.grpQuestion.PerformLayout();
             this.grpAnswers.ResumeLayout(false);
+            this.grpAnswers.PerformLayout();
             this.panAnswers.ResumeLayout(false);
             this.panAnswers.PerformLayout();
             this.grpResult.ResumeLayout(false);
+            this.grpResult.PerformLayout();
             this.panMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbResult)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -284,8 +300,9 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox grpData;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.FlowLayoutPanel panAnswers;
+        private System.Windows.Forms.PictureBox pbResult;
+        private System.Windows.Forms.Timer timer1;
     }
 }

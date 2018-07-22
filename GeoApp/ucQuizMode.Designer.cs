@@ -99,9 +99,10 @@
             // grpData
             // 
             this.grpData.Controls.Add(this.label3);
+            this.grpData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpData.Location = new System.Drawing.Point(3, 3);
             this.grpData.Name = "grpData";
-            this.grpData.Size = new System.Drawing.Size(350, 55);
+            this.grpData.Size = new System.Drawing.Size(353, 55);
             this.grpData.TabIndex = 1;
             this.grpData.TabStop = false;
             // 

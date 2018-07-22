@@ -5,10 +5,8 @@ namespace GeoApp
 {
     public class CountryAnswer : Answer
     {
-        public CountryAnswer(int posX, int posY, GeoData data) : base(posX, posY, data)
+        public CountryAnswer(GeoData data) : base(data)
         {
-            PosX = posX;
-            PosY = posY;
             Text = data.Country;
             State = data.State;
         }
@@ -25,7 +23,6 @@ namespace GeoApp
                 Tag = State.ToString(),
                 Name = Text,
                 Text = Text,
-                Location = new Point(PosX, PosY),
                 AutoSize = true
             };
 

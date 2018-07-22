@@ -12,7 +12,7 @@ namespace GeoApp
 {
     public class FlagAnswer : Answer
     {
-        public FlagAnswer(int posX, int posY, GeoData data) : base(posX, posY, data)
+        public FlagAnswer(GeoData data) : base(data)
         {
         }
 
@@ -29,7 +29,6 @@ namespace GeoApp
             {
                 Tag = State.ToString(),
                 Name = Text,
-                Location = new Point(PosX, PosY),
                 Size = new Size(image.Width + 20, image.Height),
                 Image = image
             };

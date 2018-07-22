@@ -8,10 +8,8 @@ namespace GeoApp
         public abstract int PosY { get; set; }
         public abstract string Text { get; set; }
         public abstract bool State { get; set; }
-        public Answer(int posX, int posY, GeoData data)
+        public Answer(GeoData data)
         {
-            PosX = posX;
-            PosY = posY;
             Text = data.Flag;
             State = data.State;
         }

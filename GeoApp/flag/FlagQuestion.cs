@@ -46,16 +46,16 @@ namespace GeoApp
             switch (At)
             {
                 case AnswerType.Country:
-                    Answers.Add(new CountryAnswer(10, 20, AllAnswers[0]));
-                    Answers.Add(new CountryAnswer(10, 40, AllAnswers[1]));
-                    Answers.Add(new CountryAnswer(10, 60, AllAnswers[2]));
-                    Answers.Add(new CountryAnswer(10, 80, AllAnswers[3]));
+                    Answers.Add(new CountryAnswer(AllAnswers[0]));
+                    Answers.Add(new CountryAnswer(AllAnswers[1]));
+                    Answers.Add(new CountryAnswer(AllAnswers[2]));
+                    Answers.Add(new CountryAnswer(AllAnswers[3]));
                     break;
                 case AnswerType.Capital:
-                    Answers.Add(new CapitalAnswer(10, 20, AllAnswers[0]));
-                    Answers.Add(new CapitalAnswer(10, 40, AllAnswers[1]));
-                    Answers.Add(new CapitalAnswer(10, 60, AllAnswers[2]));
-                    Answers.Add(new CapitalAnswer(10, 80, AllAnswers[3]));
+                    Answers.Add(new CapitalAnswer(AllAnswers[0]));
+                    Answers.Add(new CapitalAnswer(AllAnswers[1]));
+                    Answers.Add(new CapitalAnswer(AllAnswers[2]));
+                    Answers.Add(new CapitalAnswer(AllAnswers[3]));
                     break;
 
                 default:

@@ -44,16 +44,16 @@ namespace GeoApp
             switch (At)
             {
                 case AnswerType.Capital:
-                    Answers.Add(new CapitalAnswer(10, 20, AllAnswers[0]));
-                    Answers.Add(new CapitalAnswer(10, 40, AllAnswers[1]));
-                    Answers.Add(new CapitalAnswer(10, 60, AllAnswers[2]));
-                    Answers.Add(new CapitalAnswer(10, 80, AllAnswers[3]));
+                    Answers.Add(new CapitalAnswer(AllAnswers[0]));
+                    Answers.Add(new CapitalAnswer(AllAnswers[1]));
+                    Answers.Add(new CapitalAnswer(AllAnswers[2]));
+                    Answers.Add(new CapitalAnswer(AllAnswers[3]));
                     break;
                 case AnswerType.Flag:
-                    Answers.Add(new FlagAnswer(10, 20, AllAnswers[0]));
-                    Answers.Add(new FlagAnswer(10, 80, AllAnswers[1]));
-                    Answers.Add(new FlagAnswer(10, 140, AllAnswers[2]));
-                    Answers.Add(new FlagAnswer(10, 200, AllAnswers[3]));
+                    Answers.Add(new FlagAnswer(AllAnswers[0]));
+                    Answers.Add(new FlagAnswer(AllAnswers[1]));
+                    Answers.Add(new FlagAnswer(AllAnswers[2]));
+                    Answers.Add(new FlagAnswer(AllAnswers[3]));
                     break;
                 default:
                     break;
@@ -66,7 +66,8 @@ namespace GeoApp
             {
                 Name = "lblQuestion",
                 Text = Text,
-                Location = new Point(10, 20)
+                AutoSize = true,
+                Dock = DockStyle.Fill
             };
 
             lbl.Font = new Font(lbl.Font.FontFamily, 14);
