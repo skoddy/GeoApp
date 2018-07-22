@@ -58,22 +58,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="class\Answer.cs" />
-    <Compile Include="class\IAnswerContent.cs" />
-    <Compile Include="enum\AnswerType.cs" />
-    <Compile Include="capital\CapitalAnswer.cs" />
-    <Compile Include="capital\CapitalQuestion.cs" />
-    <Compile Include="country\CountryAnswer.cs" />
-    <Compile Include="country\CountryQuestion.cs" />
-    <Compile Include="class\Database.cs" />
+    <Compile Include="Class\Answer.cs" />
+    <Compile Include="Class\IAnswerContent.cs" />
+    <Compile Include="Enum\AnswerType.cs" />
+    <Compile Include="Answers\CapitalAnswer.cs" />
+    <Compile Include="Questions\CapitalQuestion.cs" />
+    <Compile Include="Answers\CountryAnswer.cs" />
+    <Compile Include="Questions\CountryQuestion.cs" />
+    <Compile Include="Class\Database.cs" />
     <Compile Include="App.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="App.Designer.cs">
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
-    <Compile Include="flag\FlagAnswer.cs" />
-    <Compile Include="flag\FlagQuestion.cs" />
+    <Compile Include="Answers\FlagAnswer.cs" />
+    <Compile Include="Questions\FlagQuestion.cs" />
     <Compile Include="ucQuiz.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,14 +86,14 @@
     <Compile Include="ucQuizMode.Designer.cs">
       <DependentUpon>ucQuizMode.cs</DependentUpon>
     </Compile>
-    <Compile Include="class\GeoData.cs" />
-    <Compile Include="class\Highscore.cs" />
-    <Compile Include="class\IContent.cs" />
+    <Compile Include="Class\GeoData.cs" />
+    <Compile Include="Class\Highscore.cs" />
+    <Compile Include="Class\IContent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="class\Question.cs" />
-    <Compile Include="enum\QuestionType.cs" />
-    <Compile Include="class\User.cs" />
+    <Compile Include="Class\Question.cs" />
+    <Compile Include="Enum\QuestionType.cs" />
+    <Compile Include="Class\User.cs" />
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,111 +128,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\_African-Union.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Alderney.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Arab League.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_ASEAN.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Basque Country.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_CARICOM.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Catalonia.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_CIS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Commonwealth.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_England.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_European Union.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_FAO.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Galicia.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_IAEA.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_IHO.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Islamic Conference.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Kosovo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_NATO.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Northern Cyprus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Northern Ireland.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_OAS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_OECD.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Olimpic Movement.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_OPEC.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Quebec.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Red Cross.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Scotland.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Somaliland.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Tristan da Cunha.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_UNESCO.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_UNICEF.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_United-Nations.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_Wales.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_WHO.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_WTO.png" />
+    <None Include="Resources\_ad.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ad.png" />
@@ -986,6 +883,861 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\zw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ae.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_af.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_African-Union.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_al.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Alderney.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_am.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_an.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_aq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Arab League.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ASEAN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_at.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_au.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_aw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_az.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Basque Country.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_be.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_br.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_by.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_bz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_CARICOM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Catalonia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ci.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_CIS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_co.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Commonwealth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_cz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_de.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_dj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_dk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_dm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_do.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_dz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_eg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_eh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_England.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_er.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_es.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_et.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_European Union.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_FAO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_fi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_fj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_fk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_fm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_fo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_fr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Galicia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Germany.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_gy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_hk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_hm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_hn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_hr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ht.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_hu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_IAEA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_id.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_IHO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_il.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_im.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_io.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_iq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_is.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Islamic Conference.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_it.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_je.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_jm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_jo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_jp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_kg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_kh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_km.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_kn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Kosovo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_kp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_kr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_kw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_kz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_la.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_lb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_lc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_li.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_lk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_lr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_lt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_lu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_lv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_md.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_me.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_my.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_mz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_na.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_NATO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_nc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_nf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ni.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_nl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Northern Cyprus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Northern Ireland.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_np.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_nr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_nu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_nz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_OAS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_OECD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Olimpic Movement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_om.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_OPEC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_pw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_py.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_qa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Quebec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_re.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Red Cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_rs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_rw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Scotland.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_se.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_si.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_so.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Somaliland.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_st.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_sz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_td.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_th.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_to.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Tristan da Cunha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_um.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_UNESCO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_UNICEF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_United-Nations.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_us.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_uy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_uz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_va.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_vc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_vg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_vi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_vn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_vu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_Wales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_wf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_WHO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ws.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_WTO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_ye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_yt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_za.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_zm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_zw.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

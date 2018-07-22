@@ -90,7 +90,7 @@ namespace GeoApp
             {
                 limit = $"LIMIT {max}";
             }
-            string query = $"SELECT id, countryName, countryCode, capital, continentName FROM countries {opt} ORDER BY RAND() {limit}";
+            string query = $"SELECT id, countryName, flag, capital, continentName FROM geodata {opt} ORDER BY RAND() {limit}";
 
             if (OpenConnection() == true)
             {
@@ -133,7 +133,7 @@ namespace GeoApp
                 opt = "";
             }
 
-            string query = $"SELECT id, countryName, countryCode, capital, continentName FROM countries WHERE id != {id} {opt} ORDER BY RAND()";
+            string query = $"SELECT id, countryName, flag, capital, continentName FROM geodata WHERE id != {id} {opt} ORDER BY RAND()";
 
             if (OpenConnection() == true)
             {

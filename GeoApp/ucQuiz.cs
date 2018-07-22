@@ -143,11 +143,11 @@ namespace GeoApp
                     lblResult.Text = "Falsch.\nRichtige Antwort: " + correctAnswer.Text;
 
                     ResourceManager rm = Resources.ResourceManager;
-                    Image image = (Bitmap)rm.GetObject(correctAnswer.Name.ToLower());
+                    Image image = (Bitmap)rm.GetObject(correctAnswer.Name);
 
                     // In CorrectAnswer.Name steht entweder eine Stadt ("Berlin"), ein Land ("Deutschland")
-                    // oder die Länderkennung ("DE").
-                    // Die Bilder der Flaggen sind als Resource mit der Länderkennung als Name gepeichert, zb: "de.png".
+                    // oder der Dateiname ("_de").
+                    // Die Bilder der Flaggen sind als Resource, zb: "_de.png".
                     // image gibt nur einen Wert zurück, wenn in CorrectAnswer.Name die Länderkennung steht.
                     // Somit war die Antwort eine Flagge und kann angezeigt werden.
                     if (image != null)

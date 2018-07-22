@@ -31,13 +31,9 @@ namespace GeoApp
             
         }
 
-        private void ToggleAnswerBox(object sender, EventArgs e)
+        private void ToggleAnswerBox()
         {
             grpAnswerMode.Enabled = true;
-            RadioButton rbQuestionType = panQuestionMode.Controls.OfType<RadioButton>()
-                .FirstOrDefault(r => r.Checked);
-
-            Qt = (QuestionType)Enum.Parse(typeof(QuestionType), rbQuestionType.Tag.ToString());
 
             switch (Qt)
             {
@@ -69,12 +65,18 @@ namespace GeoApp
 
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
-            if (At)
-            {
-
-            }
-            App app = (App)Parent.Parent;
+             App app = (App)Parent.Parent;
             app.Quiz();
+        }
+
+        private void SetQuestionType(object sender, EventArgs e)
+        {
+            RadioButton rbQuestionType = panQuestionMode.Controls.OfType<RadioButton>()
+                .FirstOrDefault(r => r.Checked);
+
+            Qt = (QuestionType)Enum.Parse(typeof(QuestionType), rbQuestionType.Tag.ToString());
+
+            ToggleAnswerBox();
         }
 
         private void SetAnswerType(object sender, EventArgs e)
@@ -96,7 +98,6 @@ namespace GeoApp
 
             btnStartQuiz.Enabled = true;
         }
-
 
     }
 }

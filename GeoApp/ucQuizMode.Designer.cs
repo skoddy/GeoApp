@@ -161,7 +161,7 @@
             this.rbCountryQuestions.Tag = "Country";
             this.rbCountryQuestions.Text = "Länder";
             this.rbCountryQuestions.UseVisualStyleBackColor = true;
-            this.rbCountryQuestions.CheckedChanged += new System.EventHandler(this.ToggleAnswerBox);
+            this.rbCountryQuestions.Click += new System.EventHandler(this.SetQuestionType);
             // 
             // rbCapitalQuestions
             // 
@@ -173,7 +173,7 @@
             this.rbCapitalQuestions.Tag = "Capital";
             this.rbCapitalQuestions.Text = "Hauptstädte";
             this.rbCapitalQuestions.UseVisualStyleBackColor = true;
-            this.rbCapitalQuestions.CheckedChanged += new System.EventHandler(this.ToggleAnswerBox);
+            this.rbCapitalQuestions.Click += new System.EventHandler(this.SetQuestionType);
             // 
             // rbFlagQuestions
             // 
@@ -185,7 +185,7 @@
             this.rbFlagQuestions.Tag = "Flag";
             this.rbFlagQuestions.Text = "Flaggen";
             this.rbFlagQuestions.UseVisualStyleBackColor = true;
-            this.rbFlagQuestions.CheckedChanged += new System.EventHandler(this.ToggleAnswerBox);
+            this.rbFlagQuestions.Click += new System.EventHandler(this.SetQuestionType);
             // 
             // grpAnswerMode
             // 
