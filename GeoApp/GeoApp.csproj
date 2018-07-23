@@ -78,23 +78,23 @@
     </Compile>
     <Compile Include="Answers\FlagAnswer.cs" />
     <Compile Include="Questions\FlagQuestion.cs" />
-    <Compile Include="QuizConfig.cs" />
-    <Compile Include="ucHighscore.cs">
+    <Compile Include="Class\QuizConfig.cs" />
+    <Compile Include="Controls\ucHighscore.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucHighscore.Designer.cs">
+    <Compile Include="Controls\ucHighscore.Designer.cs">
       <DependentUpon>ucHighscore.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucQuiz.cs">
+    <Compile Include="Controls\ucQuiz.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucQuiz.Designer.cs">
+    <Compile Include="Controls\ucQuiz.Designer.cs">
       <DependentUpon>ucQuiz.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucQuizConfig.cs">
+    <Compile Include="Controls\ucQuizConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucQuizConfig.Designer.cs">
+    <Compile Include="Controls\ucQuizConfig.Designer.cs">
       <DependentUpon>ucQuizConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\GeoData.cs" />
@@ -103,23 +103,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questions\Question.cs" />
     <Compile Include="Enum\QuestionType.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="ucUser.cs">
+    <Compile Include="Class\User.cs" />
+    <Compile Include="Controls\ucUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucUser.Designer.cs">
+    <Compile Include="Controls\ucUser.Designer.cs">
       <DependentUpon>ucUser.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucHighscore.resx">
+    <EmbeddedResource Include="Controls\ucHighscore.resx">
       <DependentUpon>ucHighscore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucQuiz.resx">
+    <EmbeddedResource Include="Controls\ucQuiz.resx">
       <DependentUpon>ucQuiz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucQuizConfig.resx">
+    <EmbeddedResource Include="Controls\ucQuizConfig.resx">
       <DependentUpon>ucQuizConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -127,7 +127,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucUser.resx">
+    <EmbeddedResource Include="Controls\ucUser.resx">
       <DependentUpon>ucUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
