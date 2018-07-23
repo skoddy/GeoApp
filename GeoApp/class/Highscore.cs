@@ -7,36 +7,17 @@ namespace GeoApp
 {
     public class Highscore
     {
-        public int Id
+        public Highscore(int id, string displayName, int score, DateTime date)
         {
-            get => default(int);
-            set
-            {
-            }
+            Id = id;
+            DisplayName = displayName;
+            Score = score;
+            Date = date;
         }
 
-        public int CreatedAt
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
-
-        public int User_id
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
-
-        public int Score
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
+        public int Id { get; set; }
+        public string DisplayName { get; set; }
+        public int Score { get; set; }
+        public DateTime Date { get; set; }
     }
 }

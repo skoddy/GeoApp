@@ -53,6 +53,7 @@
             this.rbEurope = new System.Windows.Forms.RadioButton();
             this.rbNorthAmerica = new System.Windows.Forms.RadioButton();
             this.rbSouthAmerica = new System.Windows.Forms.RadioButton();
+            this.btnHighscore = new System.Windows.Forms.Button();
             this.panMenu.SuspendLayout();
             this.panQuiz.SuspendLayout();
             this.grpData.SuspendLayout();
@@ -67,6 +68,7 @@
             // panMenu
             // 
             this.panMenu.Controls.Add(this.btnStartQuiz);
+            this.panMenu.Controls.Add(this.btnHighscore);
             this.panMenu.Controls.Add(this.btnCancel);
             this.panMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panMenu.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -88,7 +90,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(198, 3);
+            this.btnCancel.Location = new System.Drawing.Point(117, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -125,9 +127,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 24);
+            this.label3.Size = new System.Drawing.Size(125, 24);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Quiz Einstellungen";
+            this.label3.Text = "Einstellungen";
             // 
             // grpQuestionMode
             // 
@@ -360,6 +362,16 @@
             this.rbSouthAmerica.UseVisualStyleBackColor = true;
             this.rbSouthAmerica.CheckedChanged += new System.EventHandler(this.SetContinent);
             // 
+            // btnHighscore
+            // 
+            this.btnHighscore.Location = new System.Drawing.Point(198, 3);
+            this.btnHighscore.Name = "btnHighscore";
+            this.btnHighscore.Size = new System.Drawing.Size(75, 23);
+            this.btnHighscore.TabIndex = 3;
+            this.btnHighscore.Text = "Highscore";
+            this.btnHighscore.UseVisualStyleBackColor = true;
+            this.btnHighscore.Click += new System.EventHandler(this.btnHighscore_Click);
+            // 
             // ucQuizConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,5 +425,6 @@
         private System.Windows.Forms.RadioButton rbSouthAmerica;
         private System.Windows.Forms.RadioButton rbOceania;
         private System.Windows.Forms.RadioButton rbAfrica;
+        private System.Windows.Forms.Button btnHighscore;
     }
 }

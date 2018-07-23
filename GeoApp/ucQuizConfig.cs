@@ -99,8 +99,15 @@ namespace GeoApp
         private void CancelConfig(object sender, EventArgs e)
         {
             _instance = null;
+            User.Instance.Authed = false;
             App app = (App)Parent.Parent;
             app.User();
+        }
+
+        private void btnHighscore_Click(object sender, EventArgs e)
+        {
+            App app = (App)Parent.Parent;
+            app.Highscores();
         }
     }
 }

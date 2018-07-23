@@ -22,7 +22,10 @@ namespace GeoApp
             }
         }
 
+        public int Id { get; set; }
         public string DisplayName { get; set; }
+        public string Password { get; set; }
+        public bool Authed { get; set; } = false;
         public int Score { get; set; } = 0;
     }
 }

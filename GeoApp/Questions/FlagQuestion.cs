@@ -9,8 +9,6 @@ namespace GeoApp
 {
     public class FlagQuestion : Question
     {
-        Random gen;
-
         public FlagQuestion(GeoData question, List<GeoData> answers, AnswerType at) 
             : base(question, answers, at)
         {
@@ -25,7 +23,8 @@ namespace GeoApp
 
         public override void CreateAnswers(GeoData question, List<GeoData> answers, AnswerType at)
         {
-  
+            Random gen = new Random(Guid.NewGuid().GetHashCode());
+
             At = at;
             gen = new Random(Guid.NewGuid().GetHashCode());
             CorrectAnswer = question;
@@ -38,7 +37,7 @@ namespace GeoApp
             AllAnswers.Add(WrongAnswers[0]);
             AllAnswers.Add(WrongAnswers[1]);
             AllAnswers.Add(WrongAnswers[2]);
-            AllAnswers.Insert(gen.Next(0, 4), CorrectAnswer);
+            AllAnswers.Insert(gen.Next(4), CorrectAnswer);
 
             switch (At)
             {
@@ -64,13 +63,16 @@ namespace GeoApp
         public override Label GetContent()
         {
             ResourceManager rm = Resources.ResourceManager;
+
             Image image = (Bitmap)rm.GetObject(Text);
+
             Label lbl = new Label
             {
                 Size = new Size(image.Width, image.Height),
                 Image = image,
                 Location = new Point(14, 14)
             };
+
             return lbl;
         }
      }

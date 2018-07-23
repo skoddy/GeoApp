@@ -26,5 +26,6 @@ namespace GeoApp
         public QuestionType Qt { get; set; }
         public AnswerType At { get; set; }
         public string Continent { get; set; }
+        public int MaxQuestions { get; set; } = 10;
     }
 }

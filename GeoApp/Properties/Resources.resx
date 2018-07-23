@@ -532,9 +532,6 @@
   <data name="_kn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\_kn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_Kosovo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\_Kosovo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_kp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\_kp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -960,6 +957,9 @@
   </data>
   <data name="_WTO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\_WTO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_xk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_xk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_ye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\_ye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

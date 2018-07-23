@@ -1443,16 +1443,6 @@ namespace GeoApp.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap _Kosovo {
-            get {
-                object obj = ResourceManager.GetObject("_Kosovo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap _kp {
             get {
                 object obj = ResourceManager.GetObject("_kp", resourceCulture);
@@ -2866,6 +2856,16 @@ namespace GeoApp.Properties {
         public static System.Drawing.Bitmap _WTO {
             get {
                 object obj = ResourceManager.GetObject("_WTO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _xk {
+            get {
+                object obj = ResourceManager.GetObject("_xk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

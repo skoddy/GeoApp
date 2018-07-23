@@ -40,20 +40,17 @@ namespace GeoApp
 
         private void InitializeQuiz()
         {
-            // TODO: maxQuestions müsste woanders hin
-            int maxQuestions = 10;
-
             db = new Database();
             
             lblDisplayName.Text += User.Instance.DisplayName;
             lblScore.Text += User.Instance.Score.ToString();
             // Daten holen
-            listGeodata = db.GetData(maxQuestions, QuizConfig.Instance.Continent);
+            listGeodata = db.GetData(QuizConfig.Instance.MaxQuestions, QuizConfig.Instance.Continent);
 
             // Objekt questions mit Abstrakter Klasse initialisieren
-            questions = new Question[maxQuestions];
+            questions = new Question[QuizConfig.Instance.MaxQuestions];
 
-            for (int i = 0; i < maxQuestions; i++)
+            for (int i = 0; i < QuizConfig.Instance.MaxQuestions; i++)
             {
                 // Den ersten Eintrag als Frage speichern
                 GeoData question = listGeodata[i];
@@ -106,6 +103,7 @@ namespace GeoApp
             lblScore.Text = "Punkte: " + User.Instance.Score.ToString();
 
             // Frage anzeigen
+            grpQuestion.Text = $"Frage {questionIndex + 1} von {QuizConfig.Instance.MaxQuestions}";
             grpQuestion.Controls.Add(questions[questionIndex].GetContent());
 
             // Anworten anzeigen
@@ -114,8 +112,20 @@ namespace GeoApp
                 panAnswers.Controls.Add(answer.GetContent());
             }
 
-            // Index erhöhen
-            questionIndex++;
+            // Maximale Anzahl der Fragen wurde gestellt.
+            // Weiter-Button ausblenden, Fertig-Button einblenden.
+            if (QuizConfig.Instance.MaxQuestions == questionIndex + 1)
+            {
+                btnDone.Visible = true;
+                btnDone.Enabled = false;
+                btnNextQuestion.Visible = false;
+            }
+            else
+            {
+                // Index erhöhen
+                questionIndex++;
+            }
+
         }
 
         private void CheckAnswer()
@@ -162,6 +172,12 @@ namespace GeoApp
                     }
                 }
 
+                // Fertig-Button aktivieren
+                if (QuizConfig.Instance.MaxQuestions == questionIndex + 1)
+                {
+                    btnDone.Enabled = true;
+                }
+
                 btnAnswer.Enabled = false;
                 btnNextQuestion.Enabled = true;
             }
@@ -180,6 +196,7 @@ namespace GeoApp
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Die Punkte gehen dabei verloren.", "Quiz abbrechen", MessageBoxButtons.OKCancel);
+
             if (dialogResult == DialogResult.OK)
             {
                 _instance = null;
@@ -187,7 +204,16 @@ namespace GeoApp
                 App app = (App)Parent.Parent;
                 app.QuizConfig();
             }
+        }
 
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            Database db = new Database();
+            db.SaveHighscore();
+            _instance = null;
+            User.Instance.Score = 0;
+            App app = (App)Parent.Parent;
+            app.QuizConfig();
         }
     }
 }

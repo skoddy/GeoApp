@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GeoApp
 {
     public class CountryQuestion : Question
     {
-        Random gen;
- 
-
         public CountryQuestion(GeoData question, List<GeoData> answers, AnswerType at) 
             : base(question, answers, at)
         {
@@ -27,7 +21,8 @@ namespace GeoApp
 
         public override void CreateAnswers(GeoData question, List<GeoData> answers, AnswerType at)
         {
-  
+            Random gen = new Random(Guid.NewGuid().GetHashCode());
+
             At = at;
             gen = new Random(Guid.NewGuid().GetHashCode());
             CorrectAnswer = question;
@@ -40,7 +35,7 @@ namespace GeoApp
             AllAnswers.Add(WrongAnswers[0]);
             AllAnswers.Add(WrongAnswers[1]);
             AllAnswers.Add(WrongAnswers[2]);
-            AllAnswers.Insert(gen.Next(0, 4), CorrectAnswer);
+            AllAnswers.Insert(gen.Next(4), CorrectAnswer);
 
             switch (At)
             {

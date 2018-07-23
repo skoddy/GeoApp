@@ -157,5 +157,124 @@ namespace GeoApp
                 return list;
             }
         }
+
+        public void SignIn(string displayName, string password)
+        {
+            string query = $"SELECT id, display_name, password FROM user WHERE display_name = '{displayName}'";
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    if (dataReader.GetString(1) == displayName && dataReader.GetString(2) == password)
+                    {
+                        User.Instance.Id = dataReader.GetInt32(0);
+                        User.Instance.DisplayName = dataReader.GetString(1);
+                        User.Instance.Authed = true;
+                    }
+                }
+
+                dataReader.Close();
+                CloseConnection();
+            }
+        }
+
+        public void SignUp(string displayName, string password)
+        {
+            string query = $"INSERT INTO user VALUES(NULL, '{displayName}', '{password}', 0)";
+
+            if (OpenConnection() == true)
+            {
+                try
+                {
+                    MySqlCommand checkUserName = new MySqlCommand("SELECT COUNT(*) FROM user WHERE (display_name = @user)", connection);
+                    checkUserName.Parameters.AddWithValue("@user", displayName);
+                    int userExist = int.Parse(checkUserName.ExecuteScalar().ToString());
+
+                    if (userExist > 0)
+                    {
+                        MessageBox.Show("Name schon vergeben.");
+                    }
+                    else
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, connection);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Konto erstellt");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+                CloseConnection();
+
+            }
+        }
+
+        public void SaveHighscore()
+        {
+            string date = DateTime.Now.ToString("yyyy-MM-dd");
+            string query = $"INSERT INTO highscore VALUES(NULL, '{User.Instance.Id}', '{User.Instance.Score}', '{date}')";
+
+            if (OpenConnection() == true)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Punkte gespeichert");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+                CloseConnection();
+            }
+        }
+
+        public List<Highscore> GetHighscores(int id = 0)
+        {
+            List<Highscore> list = new List<Highscore>();
+            string query;
+            if (id == 0)
+            {
+                query = $"SELECT h.id, h.user_id, h.score, h.CreatedAt, u.display_name FROM highscore h, user u WHERE h.user_id = u.id ORDER BY h.score DESC";
+            }
+            else
+            {
+                query = $"SELECT h.id, h.user_id, h.score, h.CreatedAt, u.display_name FROM highscore h, user u WHERE h.user_id = u.id AND h.user_id = {id} ORDER BY h.score DESC";
+            }
+
+            if (OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list.Add(new Highscore(
+                        dataReader.GetInt32(0),
+                        dataReader.GetString(4),
+                        dataReader.GetInt32(2),
+                        dataReader.GetDateTime(3)
+                        ));
+                }
+
+                dataReader.Close();
+                CloseConnection();
+
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
     }
 }

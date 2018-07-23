@@ -11,6 +11,20 @@ namespace GeoApp
             User();
         }
 
+        public void Highscores()
+        {
+            if (!panel.Controls.Contains(ucHighscore.Instance))
+            {
+                panel.Controls.Add(ucHighscore.Instance);
+                ucHighscore.Instance.BringToFront();
+                ucHighscore.Instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                ucHighscore.Instance.BringToFront();
+            }
+        }
+
         public void User()
         {
             ToggleView(ucUser.Instance);
@@ -35,6 +49,7 @@ namespace GeoApp
 
             panel.Controls.Add(uc);
             uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
         }
     }
 }

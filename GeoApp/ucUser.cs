@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GeoApp
@@ -33,16 +26,43 @@ namespace GeoApp
             tbDisplayName.Text = User.Instance.DisplayName;
         }
 
-        private void SaveDisplayName(object sender, EventArgs e)
+        private void SignIn(object sender, EventArgs e)
         {
-            if (tbDisplayName.Text.Length >= 3)
+            if (tbDisplayName.Text.Length >= 3 && tbPassword.Text.Length >= 3)
             {
-                User.Instance.DisplayName = tbDisplayName.Text;
-                User.Instance.Score = 0;
-                App app = (App)Parent.Parent;
-                app.QuizConfig();
-                _instance = null;
+                Database db = new Database();
+                db.SignIn(tbDisplayName.Text, tbPassword.Text);
+
+                if(User.Instance.Authed)
+                {
+                    App app = (App)Parent.Parent;
+                    app.QuizConfig();
+                }
+                else
+                {
+                    MessageBox.Show("Name oder Passwort falsch!");
+                }
             }
+            else
+            {
+                MessageBox.Show("Mindestens 3 Zeichen!");
+            }
+        }
+
+        private void SignUp(object sender, EventArgs e)
+        {
+            if (tbDisplayName.Text.Length >= 3 && tbPassword.Text.Length >= 3)
+            {
+                Database db = new Database();
+                db.SignUp(tbDisplayName.Text, tbPassword.Text);
+                User.Instance.DisplayName = tbDisplayName.Text;
+            }
+        }
+
+        private void btnHighscores_Click(object sender, EventArgs e)
+        {
+            App app = (App)Parent.Parent;
+            app.Highscores();
         }
     }
 }

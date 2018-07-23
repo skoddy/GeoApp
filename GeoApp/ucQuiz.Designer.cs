@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panQuiz = new System.Windows.Forms.FlowLayoutPanel();
             this.grpData = new System.Windows.Forms.GroupBox();
+            this.lblDisplayName = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.grpQuestion = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,21 +42,20 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.grpResult = new System.Windows.Forms.GroupBox();
             this.lblResult = new System.Windows.Forms.Label();
-            this.pbResult = new System.Windows.Forms.PictureBox();
             this.panMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNextQuestion = new System.Windows.Forms.Button();
             this.btnAnswer = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblDisplayName = new System.Windows.Forms.Label();
+            this.btnDone = new System.Windows.Forms.Button();
+            this.pbResult = new System.Windows.Forms.PictureBox();
             this.panQuiz.SuspendLayout();
             this.grpData.SuspendLayout();
             this.grpQuestion.SuspendLayout();
             this.grpAnswers.SuspendLayout();
             this.panAnswers.SuspendLayout();
             this.grpResult.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbResult)).BeginInit();
             this.panMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbResult)).BeginInit();
             this.SuspendLayout();
             // 
             // panQuiz
@@ -83,6 +82,16 @@
             this.grpData.TabIndex = 1;
             this.grpData.TabStop = false;
             // 
+            // lblDisplayName
+            // 
+            this.lblDisplayName.AutoSize = true;
+            this.lblDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisplayName.Location = new System.Drawing.Point(7, 16);
+            this.lblDisplayName.Name = "lblDisplayName";
+            this.lblDisplayName.Size = new System.Drawing.Size(71, 24);
+            this.lblDisplayName.TabIndex = 2;
+            this.lblDisplayName.Text = "Name: ";
+            // 
             // lblScore
             // 
             this.lblScore.AutoSize = true;
@@ -104,6 +113,7 @@
             this.grpQuestion.Size = new System.Drawing.Size(353, 50);
             this.grpQuestion.TabIndex = 0;
             this.grpQuestion.TabStop = false;
+            this.grpQuestion.Text = "Frage 1 von 10";
             // 
             // label1
             // 
@@ -124,7 +134,7 @@
             this.grpAnswers.Location = new System.Drawing.Point(3, 120);
             this.grpAnswers.MinimumSize = new System.Drawing.Size(350, 0);
             this.grpAnswers.Name = "grpAnswers";
-            this.grpAnswers.Size = new System.Drawing.Size(353, 130);
+            this.grpAnswers.Size = new System.Drawing.Size(353, 138);
             this.grpAnswers.TabIndex = 1;
             this.grpAnswers.TabStop = false;
             // 
@@ -137,8 +147,9 @@
             this.panAnswers.Controls.Add(this.radioButton4);
             this.panAnswers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.panAnswers.Location = new System.Drawing.Point(7, 19);
+            this.panAnswers.MinimumSize = new System.Drawing.Size(0, 100);
             this.panAnswers.Name = "panAnswers";
-            this.panAnswers.Size = new System.Drawing.Size(340, 92);
+            this.panAnswers.Size = new System.Drawing.Size(340, 100);
             this.panAnswers.TabIndex = 4;
             // 
             // rbAnswerOne
@@ -190,8 +201,8 @@
             this.grpResult.AutoSize = true;
             this.grpResult.Controls.Add(this.lblResult);
             this.grpResult.Controls.Add(this.pbResult);
-            this.grpResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpResult.Location = new System.Drawing.Point(3, 256);
+            this.grpResult.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grpResult.Location = new System.Drawing.Point(3, 264);
             this.grpResult.MinimumSize = new System.Drawing.Size(350, 0);
             this.grpResult.Name = "grpResult";
             this.grpResult.Size = new System.Drawing.Size(353, 83);
@@ -209,16 +220,9 @@
             this.lblResult.TabIndex = 1;
             this.lblResult.Text = "Das hier ist eine Anwort?\r\n\r\n";
             // 
-            // pbResult
-            // 
-            this.pbResult.Location = new System.Drawing.Point(226, 14);
-            this.pbResult.Name = "pbResult";
-            this.pbResult.Size = new System.Drawing.Size(100, 50);
-            this.pbResult.TabIndex = 3;
-            this.pbResult.TabStop = false;
-            // 
             // panMenu
             // 
+            this.panMenu.Controls.Add(this.btnDone);
             this.panMenu.Controls.Add(this.btnNextQuestion);
             this.panMenu.Controls.Add(this.btnAnswer);
             this.panMenu.Controls.Add(this.btnCancel);
@@ -231,7 +235,8 @@
             // 
             // btnNextQuestion
             // 
-            this.btnNextQuestion.Location = new System.Drawing.Point(279, 3);
+            this.btnNextQuestion.AutoSize = true;
+            this.btnNextQuestion.Location = new System.Drawing.Point(198, 3);
             this.btnNextQuestion.Name = "btnNextQuestion";
             this.btnNextQuestion.Size = new System.Drawing.Size(75, 23);
             this.btnNextQuestion.TabIndex = 0;
@@ -241,7 +246,8 @@
             // 
             // btnAnswer
             // 
-            this.btnAnswer.Location = new System.Drawing.Point(198, 3);
+            this.btnAnswer.AutoSize = true;
+            this.btnAnswer.Location = new System.Drawing.Point(117, 3);
             this.btnAnswer.Name = "btnAnswer";
             this.btnAnswer.Size = new System.Drawing.Size(75, 23);
             this.btnAnswer.TabIndex = 1;
@@ -251,23 +257,33 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(117, 3);
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.Location = new System.Drawing.Point(31, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(80, 23);
             this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Abbrechen";
+            this.btnCancel.Text = "Einstellungen";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // lblDisplayName
+            // btnDone
             // 
-            this.lblDisplayName.AutoSize = true;
-            this.lblDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplayName.Location = new System.Drawing.Point(7, 16);
-            this.lblDisplayName.Name = "lblDisplayName";
-            this.lblDisplayName.Size = new System.Drawing.Size(71, 24);
-            this.lblDisplayName.TabIndex = 2;
-            this.lblDisplayName.Text = "Name: ";
+            this.btnDone.Location = new System.Drawing.Point(279, 3);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(75, 23);
+            this.btnDone.TabIndex = 3;
+            this.btnDone.Text = "Fertig!";
+            this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.Visible = false;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
+            // 
+            // pbResult
+            // 
+            this.pbResult.Location = new System.Drawing.Point(226, 14);
+            this.pbResult.Name = "pbResult";
+            this.pbResult.Size = new System.Drawing.Size(100, 50);
+            this.pbResult.TabIndex = 3;
+            this.pbResult.TabStop = false;
             // 
             // ucQuiz
             // 
@@ -289,8 +305,9 @@
             this.panAnswers.PerformLayout();
             this.grpResult.ResumeLayout(false);
             this.grpResult.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbResult)).EndInit();
             this.panMenu.ResumeLayout(false);
+            this.panMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbResult)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -315,7 +332,7 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.FlowLayoutPanel panAnswers;
         private System.Windows.Forms.PictureBox pbResult;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblDisplayName;
+        private System.Windows.Forms.Button btnDone;
     }
 }

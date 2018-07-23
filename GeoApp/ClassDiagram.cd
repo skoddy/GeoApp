@@ -1,108 +1,122 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="GeoApp.Answer">
-    <Position X="9" Y="0.5" Width="1.5" />
+    <Position X="12" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAACAADAAAAAA=</HashCode>
-      <FileName>class\Answer.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAAAAA=</HashCode>
+      <FileName>Answers\Answer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.CountryAnswer">
-    <Position X="9" Y="4" Width="1.5" />
+    <Position X="12" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAACAADAAAAAA=</HashCode>
-      <FileName>country\CountryAnswer.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAAAAA=</HashCode>
+      <FileName>Answers\CountryAnswer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.Question">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAUAAAAAAAAAAAAAAAAAACAACBAQCAACAAAAAA=</HashCode>
-      <FileName>class\Question.cs</FileName>
+      <FileName>Questions\Question.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.CapitalQuestion">
-    <Position X="0.5" Y="4" Width="1.5" />
+    <Position X="3.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAUAAAAAAAAAAAAQAAAAACAACBAACAACAAAAAA=</HashCode>
-      <FileName>capital\CapitalQuestion.cs</FileName>
+      <HashCode>AAAAAAAUAAAAAAAAAAAAAAAAAACAACBAACAACAAAAAA=</HashCode>
+      <FileName>Questions\CapitalQuestion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.Database" Collapsed="true">
-    <Position X="4.5" Y="7.75" Width="1.5" />
+    <Position X="0.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAEQBAAAgBABAAAQAAAAAAAAAAAgAAAAI=</HashCode>
-      <FileName>class\Database.cs</FileName>
+      <HashCode>AAAAAACAEAAAGQBAAAgBABAAAQAAAIAAAAAABgAAAAI=</HashCode>
+      <FileName>Class\Database.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.GeoData" Collapsed="true">
-    <Position X="4.5" Y="8.5" Width="1.5" />
+    <Position X="0.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAACAAAIAAAgBAAAABAAAAAA=</HashCode>
-      <FileName>class\GeoData.cs</FileName>
+      <FileName>Class\GeoData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.User" Collapsed="true">
-    <Position X="6.5" Y="8.5" Width="1.5" />
+    <Position X="0.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACACCAAAAACABAAAAAAAAAAAAAAAAiAAAAAAAAAAA=</HashCode>
-      <FileName>class\User.cs</FileName>
+      <HashCode>AAAGEAAAAAAAAAgAAAAAAAAIAAAAAAACQAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.Highscore" Collapsed="true">
-    <Position X="6.5" Y="7.75" Width="1.5" />
+    <Position X="0.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACACAAAAAAAAAAgAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>class\Highscore.cs</FileName>
+      <HashCode>AAACEAAAAAAAAAgAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Class\Highscore.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.App" Collapsed="true">
-    <Position X="0.5" Y="7.75" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAABACAAAACAAAAAABAAAAAAQQAAAA=</HashCode>
+      <HashCode>AAABAAAAACAAAAAEAACAAAACAQAAAABAAAAAAQQAAAA=</HashCode>
       <FileName>App.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.CountryQuestion">
-    <Position X="2.5" Y="4" Width="1.5" />
+    <Position X="5.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAUAAAAAAAAAAAAQAAAAACAACBAACAACAAAAAA=</HashCode>
-      <FileName>country\CountryQuestion.cs</FileName>
+      <HashCode>AAAAAAAUAAAAAAAAAAAAAAAAAACAACBAACAACAAAAAA=</HashCode>
+      <FileName>Questions\CountryQuestion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.CapitalAnswer">
-    <Position X="7" Y="4" Width="1.5" />
+    <Position X="10" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAACAADAAAAAA=</HashCode>
-      <FileName>capital\CapitalAnswer.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAAAAA=</HashCode>
+      <FileName>Answers\CapitalAnswer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.FlagAnswer">
-    <Position X="11" Y="4" Width="1.5" />
+    <Position X="14" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAACAADAAAAAA=</HashCode>
-      <FileName>flag\FlagAnswer.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAADAAAAAA=</HashCode>
+      <FileName>Answers\FlagAnswer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.FlagQuestion">
-    <Position X="4.5" Y="4" Width="1.5" />
+    <Position X="7.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAUAAAAAAAAAAAAQAAAAACAACBAACAACAAAAAA=</HashCode>
-      <FileName>flag\FlagQuestion.cs</FileName>
+      <HashCode>AAAAAAAUAAAAAAAAAAAAAAAAAACAACBAACAACAAAAAA=</HashCode>
+      <FileName>Questions\FlagQuestion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GeoApp.ucQuiz" Collapsed="true">
-    <Position X="2.5" Y="7.75" Width="1.5" />
+    <Position X="0.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAUACAQCCgQABEAgACEAUACAAQQQQgEUAAigAAgAAI=</HashCode>
+      <HashCode>AAIUACAQCCgQAFEAgACGAVAjAAQQQAgEUAAggBAgAAI=</HashCode>
       <FileName>ucQuiz.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GeoApp.ucQuizMode" Collapsed="true">
-    <Position X="2.5" Y="8.5" Width="1.5" />
+  <Class Name="GeoApp.ucUser" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEgAgICCECABEAAACQAAQCgACAQFAJQQgkACAAACA=</HashCode>
-      <FileName>ucQuizMode.cs</FileName>
+      <HashCode>AAAEAACAACAACBAAAACEAAACAAAIAAAAQAAAIgAFAAA=</HashCode>
+      <FileName>ucUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeoApp.ucHighscore" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACAQABAAAACAAIDCAwgASABAQCAAAAAAQAA=</HashCode>
+      <FileName>ucHighscore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeoApp.ucQuizConfig" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEgAgICGECABEAIATSCAQCAAAIQBAIyQggIAAAQCA=</HashCode>
+      <FileName>ucQuizConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
