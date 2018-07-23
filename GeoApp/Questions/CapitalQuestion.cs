@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace GeoApp
 {
+    // Siehe FlagQuestion.cs
     public class CapitalQuestion : Question
     {
         public CapitalQuestion(GeoData question, List<GeoData> answers, AnswerType at) 

@@ -2,6 +2,7 @@
 
 namespace GeoApp
 {
+    // Abstrakte Antwort Klasse
     public abstract class Answer
     {
         public abstract string Text { get; set; }

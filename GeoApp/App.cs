@@ -11,20 +11,6 @@ namespace GeoApp
             User();
         }
 
-        public void Highscores()
-        {
-            if (!panel.Controls.Contains(ucHighscore.Instance))
-            {
-                panel.Controls.Add(ucHighscore.Instance);
-                ucHighscore.Instance.BringToFront();
-                ucHighscore.Instance.Dock = DockStyle.Fill;
-            }
-            else
-            {
-                ucHighscore.Instance.BringToFront();
-            }
-        }
-
         public void User()
         {
             ToggleView(ucUser.Instance);
@@ -39,7 +25,21 @@ namespace GeoApp
         {
             ToggleView(ucQuizConfig.Instance);
         }
- 
+
+        public void Highscores()
+        {
+            if (!panel.Controls.Contains(ucHighscore.Instance))
+            {
+                panel.Controls.Add(ucHighscore.Instance);
+                ucHighscore.Instance.BringToFront();
+                ucHighscore.Instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                ucHighscore.Instance.BringToFront();
+            }
+        }
+
         private void ToggleView(UserControl uc)
         {
             foreach (Control c in panel.Controls.OfType<UserControl>())

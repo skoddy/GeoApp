@@ -21,10 +21,14 @@ namespace GeoApp
             ResourceManager rm = Resources.ResourceManager;
 
             Image image = (Bitmap)rm.GetObject(Text);
+
+            // Ich habe nicht überprüft ob alle Flaggen vorhanden sind. (250 Stk.)
+            // falls eine fehlt, kommt diese Ausgabe
             if(image == null)
             {
                 MessageBox.Show(Text);
             }
+
             RadioButton rb = new RadioButton
             {
                 Tag = State.ToString(),

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace GeoApp
 {
+    // Kommentare notwendig? Ich bin mir ziemlich sicher die Klasse erklärt sich von selbst
     public class FlagQuestion : Question
     {
         public FlagQuestion(GeoData question, List<GeoData> answers, AnswerType at) 
@@ -21,8 +22,16 @@ namespace GeoApp
         public override List<GeoData> AllAnswers { get; set; }
         public override string Text { get; set; }
 
+        // Nagut, die hier erkläre ich.
+        // Beim Aufruf der Klasse wird diese Methode hier als erstes aufgerufen.
+        // Deswegen heisst es Method Factory
         public override void CreateAnswers(GeoData question, List<GeoData> answers, AnswerType at)
         {
+            // Da die Methode oft und schnell aufgerufen wird, kommt Random()
+            // nicht so schnell hinterher um ein gutes Random Ergebnis zu erstellen.
+            // Was Random() übrigens eh nicht tut. Siehe Birthday Paradox.
+            // Daher die Übergabe der Guid.
+
             Random gen = new Random(Guid.NewGuid().GetHashCode());
 
             At = at;
@@ -65,6 +74,13 @@ namespace GeoApp
             ResourceManager rm = Resources.ResourceManager;
 
             Image image = (Bitmap)rm.GetObject(Text);
+
+            // Ich habe nicht überprüft ob alle Flaggen vorhanden sind. (250 Stk.)
+            // falls eine fehlt, kommt diese Ausgabe
+            if (image == null)
+            {
+                MessageBox.Show(Text);
+            }
 
             Label lbl = new Label
             {

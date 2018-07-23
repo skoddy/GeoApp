@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace GeoApp
 {
+    // Abstrakte Fragen Klasse mit Factory Method Pattern
     public abstract class Question
     {
         // Der Konstruktor ruft die Factory Methode auf.
