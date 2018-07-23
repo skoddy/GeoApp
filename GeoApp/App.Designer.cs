@@ -47,6 +47,9 @@
             this.ClientSize = new System.Drawing.Size(359, 640);
             this.Controls.Add(this.panel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(375, 679);
+            this.MinimumSize = new System.Drawing.Size(375, 679);
             this.Name = "App";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Geo Quiz";
